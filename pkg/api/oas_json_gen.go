@@ -385,6 +385,39 @@ func (s *OptWaInstanceIdInstanceEditMessageApiTokenInstancePostReq) UnmarshalJSO
 	return s.Decode(d)
 }
 
+// Encode encodes WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq as json.
+func (o OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq from json.
+func (o *OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
 // Encode encodes WaInstanceIdInstanceGetAvatarApiTokenInstancePostReq as json.
 func (o OptWaInstanceIdInstanceGetAvatarApiTokenInstancePostReq) Encode(e *jx.Encoder) {
 	if !o.Set {
@@ -843,6 +876,72 @@ func (s OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) Ma
 
 // UnmarshalJSON implements stdjson.Unmarshaler.
 func (s *OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData as json.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData from json.
+func (o *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode encodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq as json.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Encode(e *jx.Encoder) {
+	if !o.Set {
+		return
+	}
+	o.Value.Encode(e)
+}
+
+// Decode decodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq from json.
+func (o *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Decode(d *jx.Decoder) error {
+	if o == nil {
+		return errors.New("invalid: unable to decode OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq to nil")
+	}
+	o.Set = true
+	if err := o.Value.Decode(d); err != nil {
+		return err
+	}
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) UnmarshalJSON(data []byte) error {
 	d := jx.DecodeBytes(data)
 	return s.Decode(d)
 }
@@ -2833,6 +2932,209 @@ func (s *WaInstanceIdInstanceEditMessageApiTokenInstancePostReq) MarshalJSON() (
 
 // UnmarshalJSON implements stdjson.Unmarshaler.
 func (s *WaInstanceIdInstanceEditMessageApiTokenInstancePostReq) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) encodeFields(e *jx.Encoder) {
+	{
+		if s.Messages != nil {
+			e.FieldStart("messages")
+			e.ArrStart()
+			for _, elem := range s.Messages {
+				e.Str(elem)
+			}
+			e.ArrEnd()
+		}
+	}
+}
+
+var jsonFieldsNameOfWaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK = [1]string{
+	0: "messages",
+}
+
+// Decode decodes WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK from json.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "messages":
+			if err := func() error {
+				s.Messages = make([]string, 0)
+				if err := d.Arr(func(d *jx.Decoder) error {
+					var elem string
+					v, err := d.Str()
+					elem = string(v)
+					if err != nil {
+						return err
+					}
+					s.Messages = append(s.Messages, elem)
+					return nil
+				}); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"messages\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) encodeFields(e *jx.Encoder) {
+	{
+		if s.ChatId.Set {
+			e.FieldStart("chatId")
+			s.ChatId.Encode(e)
+		}
+	}
+	{
+		if s.ChatIdFrom.Set {
+			e.FieldStart("chatIdFrom")
+			s.ChatIdFrom.Encode(e)
+		}
+	}
+	{
+		if s.Messages != nil {
+			e.FieldStart("messages")
+			e.ArrStart()
+			for _, elem := range s.Messages {
+				e.Str(elem)
+			}
+			e.ArrEnd()
+		}
+	}
+	{
+		if s.TypingTime.Set {
+			e.FieldStart("typingTime")
+			s.TypingTime.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq = [4]string{
+	0: "chatId",
+	1: "chatIdFrom",
+	2: "messages",
+	3: "typingTime",
+}
+
+// Decode decodes WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq from json.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "chatId":
+			if err := func() error {
+				s.ChatId.Reset()
+				if err := s.ChatId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"chatId\"")
+			}
+		case "chatIdFrom":
+			if err := func() error {
+				s.ChatIdFrom.Reset()
+				if err := s.ChatIdFrom.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"chatIdFrom\"")
+			}
+		case "messages":
+			if err := func() error {
+				s.Messages = make([]string, 0)
+				if err := d.Arr(func(d *jx.Decoder) error {
+					var elem string
+					v, err := d.Str()
+					elem = string(v)
+					if err != nil {
+						return err
+					}
+					s.Messages = append(s.Messages, elem)
+					return nil
+				}); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"messages\"")
+			}
+		case "typingTime":
+			if err := func() error {
+				s.TypingTime.Reset()
+				if err := s.TypingTime.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"typingTime\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) UnmarshalJSON(data []byte) error {
 	d := jx.DecodeBytes(data)
 	return s.Decode(d)
 }
@@ -7819,6 +8121,212 @@ func (s *WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) Unma
 }
 
 // Encode implements json.Marshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) encodeFields(e *jx.Encoder) {
+	{
+		if s.Status.Set {
+			e.FieldStart("status")
+			s.Status.Encode(e)
+		}
+	}
+	{
+		if s.Data.Set {
+			e.FieldStart("data")
+			s.Data.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef = [2]string{
+	0: "status",
+	1: "data",
+}
+
+// Decode decodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef from json.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "status":
+			if err := func() error {
+				s.Status.Reset()
+				if err := s.Status.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"status\"")
+			}
+		case "data":
+			if err := func() error {
+				s.Data.Reset()
+				if err := s.Data.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"data\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) encodeFields(e *jx.Encoder) {
+	{
+		if s.Status.Set {
+			e.FieldStart("status")
+			s.Status.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData = [1]string{
+	0: "status",
+}
+
+// Decode decodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData from json.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "status":
+			if err := func() error {
+				s.Status.Reset()
+				if err := s.Status.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"status\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Encode(e *jx.Encoder) {
+	e.ObjStart()
+	s.encodeFields(e)
+	e.ObjEnd()
+}
+
+// encodeFields encodes fields.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) encodeFields(e *jx.Encoder) {
+	{
+		if s.Password.Set {
+			e.FieldStart("password")
+			s.Password.Encode(e)
+		}
+	}
+}
+
+var jsonFieldsNameOfWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq = [1]string{
+	0: "password",
+}
+
+// Decode decodes WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq from json.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Decode(d *jx.Decoder) error {
+	if s == nil {
+		return errors.New("invalid: unable to decode WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq to nil")
+	}
+
+	if err := d.ObjBytes(func(d *jx.Decoder, k []byte) error {
+		switch string(k) {
+		case "password":
+			if err := func() error {
+				s.Password.Reset()
+				if err := s.Password.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"password\"")
+			}
+		default:
+			return d.Skip()
+		}
+		return nil
+	}); err != nil {
+		return errors.Wrap(err, "decode WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq")
+	}
+
+	return nil
+}
+
+// MarshalJSON implements stdjson.Marshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) MarshalJSON() ([]byte, error) {
+	e := jx.Encoder{}
+	s.Encode(&e)
+	return e.Bytes(), nil
+}
+
+// UnmarshalJSON implements stdjson.Unmarshaler.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) UnmarshalJSON(data []byte) error {
+	d := jx.DecodeBytes(data)
+	return s.Decode(d)
+}
+
+// Encode implements json.Marshaler.
 func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostBadRequest) Encode(e *jx.Encoder) {
 	e.ObjStart()
 	s.encodeFields(e)
@@ -8016,11 +8524,25 @@ func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) encodeFields(e 
 			s.Contact.Encode(e)
 		}
 	}
+	{
+		if s.TypingTime.Set {
+			e.FieldStart("typingTime")
+			s.TypingTime.Encode(e)
+		}
+	}
+	{
+		if s.QuotedMessageId.Set {
+			e.FieldStart("quotedMessageId")
+			s.QuotedMessageId.Encode(e)
+		}
+	}
 }
 
-var jsonFieldsNameOfWaInstanceIdInstanceSendContactApiTokenInstancePostReq = [2]string{
+var jsonFieldsNameOfWaInstanceIdInstanceSendContactApiTokenInstancePostReq = [4]string{
 	0: "chatId",
 	1: "contact",
+	2: "typingTime",
+	3: "quotedMessageId",
 }
 
 // Decode decodes WaInstanceIdInstanceSendContactApiTokenInstancePostReq from json.
@@ -8050,6 +8572,26 @@ func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) Decode(d *jx.De
 				return nil
 			}(); err != nil {
 				return errors.Wrap(err, "decode field \"contact\"")
+			}
+		case "typingTime":
+			if err := func() error {
+				s.TypingTime.Reset()
+				if err := s.TypingTime.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"typingTime\"")
+			}
+		case "quotedMessageId":
+			if err := func() error {
+				s.QuotedMessageId.Reset()
+				if err := s.QuotedMessageId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"quotedMessageId\"")
 			}
 		default:
 			return d.Skip()
@@ -8525,13 +9067,27 @@ func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) encodeFields(
 			s.Caption.Encode(e)
 		}
 	}
+	{
+		if s.TypingTime.Set {
+			e.FieldStart("typingTime")
+			s.TypingTime.Encode(e)
+		}
+	}
+	{
+		if s.QuotedMessageId.Set {
+			e.FieldStart("quotedMessageId")
+			s.QuotedMessageId.Encode(e)
+		}
+	}
 }
 
-var jsonFieldsNameOfWaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq = [4]string{
+var jsonFieldsNameOfWaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq = [6]string{
 	0: "chatId",
 	1: "urlFile",
 	2: "fileName",
 	3: "caption",
+	4: "typingTime",
+	5: "quotedMessageId",
 }
 
 // Decode decodes WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq from json.
@@ -8581,6 +9137,26 @@ func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) Decode(d *jx.
 				return nil
 			}(); err != nil {
 				return errors.Wrap(err, "decode field \"caption\"")
+			}
+		case "typingTime":
+			if err := func() error {
+				s.TypingTime.Reset()
+				if err := s.TypingTime.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"typingTime\"")
+			}
+		case "quotedMessageId":
+			if err := func() error {
+				s.QuotedMessageId.Reset()
+				if err := s.QuotedMessageId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"quotedMessageId\"")
 			}
 		default:
 			return d.Skip()
@@ -8810,12 +9386,26 @@ func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) encodeFields(e
 			s.Longitude.Encode(e)
 		}
 	}
+	{
+		if s.TypingTime.Set {
+			e.FieldStart("typingTime")
+			s.TypingTime.Encode(e)
+		}
+	}
+	{
+		if s.QuotedMessageId.Set {
+			e.FieldStart("quotedMessageId")
+			s.QuotedMessageId.Encode(e)
+		}
+	}
 }
 
-var jsonFieldsNameOfWaInstanceIdInstanceSendLocationApiTokenInstancePostReq = [3]string{
+var jsonFieldsNameOfWaInstanceIdInstanceSendLocationApiTokenInstancePostReq = [5]string{
 	0: "chatId",
 	1: "latitude",
 	2: "longitude",
+	3: "typingTime",
+	4: "quotedMessageId",
 }
 
 // Decode decodes WaInstanceIdInstanceSendLocationApiTokenInstancePostReq from json.
@@ -8855,6 +9445,26 @@ func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) Decode(d *jx.D
 				return nil
 			}(); err != nil {
 				return errors.Wrap(err, "decode field \"longitude\"")
+			}
+		case "typingTime":
+			if err := func() error {
+				s.TypingTime.Reset()
+				if err := s.TypingTime.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"typingTime\"")
+			}
+		case "quotedMessageId":
+			if err := func() error {
+				s.QuotedMessageId.Reset()
+				if err := s.QuotedMessageId.Decode(d); err != nil {
+					return err
+				}
+				return nil
+			}(); err != nil {
+				return errors.Wrap(err, "decode field \"quotedMessageId\"")
 			}
 		default:
 			return d.Skip()

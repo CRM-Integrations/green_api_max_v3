@@ -22,7 +22,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '35'
+              example: 35
             Connection:
               schema:
                 type: string
@@ -72,7 +72,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '85'
+              example: 85
             Connection:
               schema:
                 type: string
@@ -156,7 +156,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '22'
+              example: 22
             Connection:
               schema:
                 type: string
@@ -204,7 +204,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '22'
+              example: 22
             Connection:
               schema:
                 type: string
@@ -269,6 +269,53 @@ paths:
         schema:
           type: string
         example: '{{apiTokenInstance}}'
+  /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}:
+    post:
+      summary: Отправить пароль авторизации
+      responses:
+        default:
+          description: sendAuthorizationPassword
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+              example:
+                status: true
+                data:
+                  status: success
+      tags:
+        - Аккаунт
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+            example:
+              password: qwerty
+    parameters:
+      - name: idInstance
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{idInstance}}'
+      - name: apiTokenInstance
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{apiTokenInstance}}'
   /waInstance{idInstance}/setSettings/{apiTokenInstance}:
     post:
       summary: Установить настройки инстанса
@@ -287,7 +334,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '26'
+              example: 26
             Connection:
               schema:
                 type: string
@@ -371,7 +418,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '26'
+              example: 26
             Connection:
               schema:
                 type: string
@@ -407,7 +454,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '26'
+              example: 26
             Connection:
               schema:
                 type: string
@@ -453,7 +500,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '317'
+              example: 317
             Connection:
               schema:
                 type: string
@@ -465,11 +512,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '1'
+              example: 1
             Access-Control-Allow-Origin:
               schema:
                 type: string
@@ -518,7 +565,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -602,7 +649,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -631,7 +678,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -715,7 +762,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '190'
+              example: 190
             Connection:
               schema:
                 type: string
@@ -744,7 +791,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '146'
+              example: 146
             Connection:
               schema:
                 type: string
@@ -818,7 +865,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -847,7 +894,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -896,12 +943,19 @@ paths:
                   type: string
                 caption:
                   type: string
+                typingTime:
+                  type: integer
+                quotedMessageId:
+                  type: string
+                  format: utc-millisec
             example:
               chatId: '10000000'
               urlFile: >-
                 https://avatars.mds.yandex.net/get-pdb/477388/77f64197-87d2-42cf-9305-14f49c65f1da/s375
               fileName: horse.png
               caption: лошадка
+              typingTime: 10000
+              quotedMessageId: '2712345112345'
     parameters:
       - name: idInstance
         in: path
@@ -939,7 +993,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -969,7 +1023,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '229'
+              example: 229
             Connection:
               schema:
                 type: string
@@ -981,11 +1035,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '49'
+              example: 49
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Origin:
               schema:
                 type: string
@@ -1034,7 +1088,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -1094,7 +1148,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -1123,7 +1177,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -1169,10 +1223,17 @@ paths:
                   type: number
                 longitude:
                   type: number
+                typingTime:
+                  type: integer
+                quotedMessageId:
+                  type: string
+                  format: utc-millisec
             example:
               chatId: '10000000'
               latitude: 51.1035035
               longitude: 71.3996933
+              typingTime: 10000
+              quotedMessageId: '2712345112345'
     parameters:
       - name: idInstance
         in: path
@@ -1210,7 +1271,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -1239,7 +1300,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -1288,10 +1349,106 @@ paths:
                     chatId:
                       type: string
                       format: utc-millisec
+                typingTime:
+                  type: integer
+                quotedMessageId:
+                  type: string
+                  format: utc-millisec
             example:
               chatId: '10000000'
               contact:
                 chatId: '10000000'
+              typingTime: 10000
+              quotedMessageId: '2712345112345'
+    parameters:
+      - name: idInstance
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{idInstance}}'
+      - name: apiTokenInstance
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{apiTokenInstance}}'
+  /waInstance{idInstance}/forwardMessages/{apiTokenInstance}:
+    post:
+      summary: Переслать сообщения
+      parameters:
+        - name: User-Agent
+          in: header
+          schema:
+            type: string
+          example: GREEN-API_POSTMAN/1.0
+      responses:
+        '200':
+          description: forwardMessages
+          headers:
+            Server:
+              schema:
+                type: string
+              example: nginx
+            Date:
+              schema:
+                type: string
+              example: Fri, 17 Apr 2020 13:14:58 GMT
+            Content-Length:
+              schema:
+                type: integer
+              example: 41
+            Connection:
+              schema:
+                type: string
+              example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                      format: utc-millisec
+              example:
+                messages:
+                  - '1769666251009'
+                  - '1769666251008'
+                  - '1769666251007'
+      tags:
+        - Отправка
+      description: >-
+        Документация
+        [ForwardMessages](https://green-api.com/v3/docs/api/sending/ForwardMessages/)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chatId:
+                  type: string
+                  format: utc-millisec
+                chatIdFrom:
+                  type: string
+                  format: utc-millisec
+                messages:
+                  type: array
+                  items:
+                    type: string
+                    format: utc-millisec
+                typingTime:
+                  type: integer
+            example:
+              chatId: '10000000'
+              chatIdFrom: '10000001'
+              messages:
+                - '1769666251000'
+                - '1769666251001'
+                - '1769666251002'
+              typingTime: 5000
     parameters:
       - name: idInstance
         in: path
@@ -1314,7 +1471,7 @@ paths:
           description: Таймаут ожидания уведомления, принимает значение от 5 до 60 секунд
           schema:
             type: integer
-          example: '5'
+          example: 5
       responses:
         '200':
           description: receiveNotification
@@ -1464,7 +1621,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '115'
+              example: 115
             Connection:
               schema:
                 type: string
@@ -1476,11 +1633,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             X-Request-Id:
               schema:
                 type: string
@@ -1514,7 +1671,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '86'
+              example: 86
             Connection:
               schema:
                 type: string
@@ -1526,11 +1683,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -1591,7 +1748,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
       tags:
         - Получение
         - Получение файлов
@@ -1644,7 +1801,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -1722,7 +1879,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '41'
+              example: 41
             Connection:
               schema:
                 type: string
@@ -1900,7 +2057,7 @@ paths:
           description: Время в минутах
           schema:
             type: integer
-          example: '1440'
+          example: 1440
       responses:
         '200':
           description: lastIncomingMessages
@@ -1916,7 +2073,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '1643'
+              example: 1643
             Connection:
               schema:
                 type: string
@@ -1998,7 +2155,7 @@ paths:
           description: Время в минутах
           schema:
             type: integer
-          example: '1440'
+          example: 1440
       responses:
         '200':
           description: lastOutgoingMessages
@@ -2014,7 +2171,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '2900'
+              example: 2900
             Connection:
               schema:
                 type: string
@@ -2097,7 +2254,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '11'
+              example: 11
             Connection:
               schema:
                 type: string
@@ -2154,7 +2311,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -2212,7 +2369,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '321'
+              example: 321
             Connection:
               schema:
                 type: string
@@ -2282,7 +2439,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '23'
+              example: 23
             Connection:
               schema:
                 type: string
@@ -2332,7 +2489,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '321'
+              example: 321
             Connection:
               schema:
                 type: string
@@ -2382,7 +2539,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '321'
+              example: 321
             Connection:
               schema:
                 type: string
@@ -2431,7 +2588,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '127'
+              example: 127
             Connection:
               schema:
                 type: string
@@ -2443,11 +2600,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -2508,7 +2665,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -2537,7 +2694,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '215'
+              example: 215
             Connection:
               schema:
                 type: string
@@ -2549,11 +2706,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -2614,7 +2771,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -2686,7 +2843,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '24'
+              example: 24
             Connection:
               schema:
                 type: string
@@ -2698,11 +2855,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -2763,7 +2920,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -2783,7 +2940,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '219'
+              example: 219
             Connection:
               schema:
                 type: string
@@ -2795,11 +2952,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -2860,7 +3017,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -2932,7 +3089,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '345'
+              example: 345
             Connection:
               schema:
                 type: string
@@ -2944,11 +3101,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '9'
+              example: 9
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '10'
+              example: 10
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3009,7 +3166,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3078,7 +3235,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '19'
+              example: 19
             Connection:
               schema:
                 type: string
@@ -3090,11 +3247,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '9'
+              example: 9
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '10'
+              example: 10
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3155,7 +3312,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
       tags:
         - Группы
       description: >-
@@ -3199,7 +3356,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '28'
+              example: 28
             Connection:
               schema:
                 type: string
@@ -3211,11 +3368,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3276,7 +3433,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3296,7 +3453,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '225'
+              example: 225
             Connection:
               schema:
                 type: string
@@ -3308,11 +3465,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3373,7 +3530,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3449,7 +3606,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '23'
+              example: 23
             Connection:
               schema:
                 type: string
@@ -3461,11 +3618,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3526,7 +3683,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3546,7 +3703,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '225'
+              example: 225
             Connection:
               schema:
                 type: string
@@ -3558,11 +3715,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3623,7 +3780,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3692,7 +3849,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '23'
+              example: 23
             Connection:
               schema:
                 type: string
@@ -3704,11 +3861,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3769,7 +3926,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3789,7 +3946,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '225'
+              example: 225
             Connection:
               schema:
                 type: string
@@ -3801,11 +3958,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -3866,7 +4023,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -3935,7 +4092,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '23'
+              example: 23
             Connection:
               schema:
                 type: string
@@ -3947,11 +4104,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4012,7 +4169,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4032,7 +4189,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '225'
+              example: 225
             Connection:
               schema:
                 type: string
@@ -4044,11 +4201,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4109,7 +4266,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4178,7 +4335,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '23'
+              example: 23
             Connection:
               schema:
                 type: string
@@ -4190,11 +4347,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4255,7 +4412,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4275,7 +4432,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '225'
+              example: 225
             Connection:
               schema:
                 type: string
@@ -4287,11 +4444,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4352,7 +4509,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4421,7 +4578,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '141'
+              example: 141
             Connection:
               schema:
                 type: string
@@ -4433,11 +4590,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4498,7 +4655,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4526,7 +4683,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '15'
+              example: 15
             Connection:
               schema:
                 type: string
@@ -4538,11 +4695,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4603,7 +4760,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4641,7 +4798,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '20'
+              example: 20
             Connection:
               schema:
                 type: string
@@ -4653,11 +4810,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4718,7 +4875,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4738,7 +4895,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '216'
+              example: 216
             Connection:
               schema:
                 type: string
@@ -4750,11 +4907,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4815,7 +4972,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4890,7 +5047,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '16'
+              example: 16
             Connection:
               schema:
                 type: string
@@ -4902,11 +5059,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '9'
+              example: 9
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '10'
+              example: 10
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -4967,7 +5124,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -4991,7 +5148,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '209'
+              example: 209
             Connection:
               schema:
                 type: string
@@ -5003,11 +5160,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '9'
+              example: 9
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '10'
+              example: 10
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -5068,7 +5225,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5137,7 +5294,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '30'
+              example: 30
             Connection:
               schema:
                 type: string
@@ -5206,7 +5363,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5230,7 +5387,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '30'
+              example: 30
             Connection:
               schema:
                 type: string
@@ -5299,7 +5456,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5369,7 +5526,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '144'
+              example: 144
             Connection:
               schema:
                 type: string
@@ -5381,11 +5538,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '9'
+              example: 9
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '10'
+              example: 10
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -5446,7 +5603,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5472,7 +5629,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '255'
+              example: 255
             Connection:
               schema:
                 type: string
@@ -5484,11 +5641,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '9'
+              example: 9
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '10'
+              example: 10
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -5549,7 +5706,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5620,7 +5777,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '458'
+              example: 458
             Connection:
               schema:
                 type: string
@@ -5691,7 +5848,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '259'
+              example: 259
             Connection:
               schema:
                 type: string
@@ -5760,7 +5917,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5798,7 +5955,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '259'
+              example: 259
             Connection:
               schema:
                 type: string
@@ -5867,7 +6024,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:
@@ -5935,7 +6092,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '154'
+              example: 154
             Connection:
               schema:
                 type: string
@@ -5947,11 +6104,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '49'
+              example: 49
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Strict-Transport-Security:
               schema:
                 type: string
@@ -6048,7 +6205,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -6060,7 +6217,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '17'
+              example: 17
             ETag:
               schema:
                 type: string
@@ -6138,7 +6295,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -6150,7 +6307,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '17'
+              example: 17
             ETag:
               schema:
                 type: string
@@ -6282,7 +6439,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -6294,7 +6451,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '17'
+              example: 17
             ETag:
               schema:
                 type: string
@@ -6366,7 +6523,7 @@ paths:
             X-XSS-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Access-Control-Allow-Methods:
               schema:
                 type: string
@@ -6378,7 +6535,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '17'
+              example: 17
             ETag:
               schema:
                 type: string
@@ -6463,7 +6620,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '0'
+              example: 0
             Connection:
               schema:
                 type: string
@@ -6475,11 +6632,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -6536,7 +6693,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
         '400':
           description: sendTyping (validation failed)
           headers:
@@ -6547,7 +6704,7 @@ paths:
             Content-Length:
               schema:
                 type: integer
-              example: '223'
+              example: 223
             Connection:
               schema:
                 type: string
@@ -6559,11 +6716,11 @@ paths:
             X-RateLimit-Remaining:
               schema:
                 type: integer
-              example: '-1'
+              example: -1
             X-RateLimit-Replenish-Rate:
               schema:
                 type: integer
-              example: '50'
+              example: 50
             Access-Control-Allow-Headers:
               schema:
                 type: string
@@ -6624,7 +6781,7 @@ paths:
             X-Xss-Protection:
               schema:
                 type: integer
-              example: '0'
+              example: 0
           content:
             application/json:
               schema:

@@ -99,6 +99,16 @@ func (UnimplementedHandler) WaInstanceIdInstanceEditMessageApiTokenInstancePost(
 	return r, ht.ErrNotImplemented
 }
 
+// WaInstanceIdInstanceForwardMessagesApiTokenInstancePost implements POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance} operation.
+//
+// Документация [ForwardMessages](https://green-api.
+// com/v3/docs/api/sending/ForwardMessages/).
+//
+// POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance}
+func (UnimplementedHandler) WaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq, params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams) (r *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, _ error) {
+	return r, ht.ErrNotImplemented
+}
+
 // WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGet implements GET /waInstance{idInstance}/getAccountSettings/{apiTokenInstance} operation.
 //
 // Документация [GetAccountSettings](https://green-api.
@@ -304,6 +314,15 @@ func (UnimplementedHandler) WaInstanceIdInstanceRemoveAdminApiTokenInstancePost(
 //
 // POST /waInstance{idInstance}/removeGroupParticipant/{apiTokenInstance}
 func (UnimplementedHandler) WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq, params WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostParams) (r WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRes, _ error) {
+	return r, ht.ErrNotImplemented
+}
+
+// WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost implements POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance} operation.
+//
+// Отправить пароль авторизации.
+//
+// POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}
+func (UnimplementedHandler) WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq, params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams) (r *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, _ error) {
 	return r, ht.ErrNotImplemented
 }
 

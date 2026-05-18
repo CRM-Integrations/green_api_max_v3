@@ -67,6 +67,13 @@ type Handler interface {
 	//
 	// POST /waInstance{idInstance}/editMessage/{apiTokenInstance}
 	WaInstanceIdInstanceEditMessageApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceEditMessageApiTokenInstancePostReq, params WaInstanceIdInstanceEditMessageApiTokenInstancePostParams) (WaInstanceIdInstanceEditMessageApiTokenInstancePostRes, error)
+	// WaInstanceIdInstanceForwardMessagesApiTokenInstancePost implements POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance} operation.
+	//
+	// Документация [ForwardMessages](https://green-api.
+	// com/v3/docs/api/sending/ForwardMessages/).
+	//
+	// POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance}
+	WaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq, params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams) (*WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, error)
 	// WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGet implements GET /waInstance{idInstance}/getAccountSettings/{apiTokenInstance} operation.
 	//
 	// Документация [GetAccountSettings](https://green-api.
@@ -209,6 +216,12 @@ type Handler interface {
 	//
 	// POST /waInstance{idInstance}/removeGroupParticipant/{apiTokenInstance}
 	WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq, params WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostParams) (WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRes, error)
+	// WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost implements POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance} operation.
+	//
+	// Отправить пароль авторизации.
+	//
+	// POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}
+	WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx context.Context, req OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq, params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams) (*WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, error)
 	// WaInstanceIdInstanceSendContactApiTokenInstancePost implements POST /waInstance{idInstance}/sendContact/{apiTokenInstance} operation.
 	//
 	// Документация [SendContact](https://green-api.com/v3/docs/api/sending/SendContact/).

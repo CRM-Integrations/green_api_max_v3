@@ -8965,6 +8965,198 @@ func decodeWaInstanceIdInstanceEditMessageApiTokenInstancePostResponse(resp *htt
 	return res, validate.UnexpectedStatusCodeWithResponse(resp)
 }
 
+func decodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostResponse(resp *http.Response) (res *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, _ error) {
+	switch resp.StatusCode {
+	case 200:
+		// Code 200.
+		ct, _, err := mime.ParseMediaType(resp.Header.Get("Content-Type"))
+		if err != nil {
+			return res, errors.Wrap(err, "parse media type")
+		}
+		switch {
+		case ct == "application/json":
+			buf, err := io.ReadAll(resp.Body)
+			if err != nil {
+				return res, err
+			}
+			d := jx.DecodeBytes(buf)
+
+			var response WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK
+			if err := func() error {
+				if err := response.Decode(d); err != nil {
+					return err
+				}
+				if err := d.Skip(); err != io.EOF {
+					return errors.New("unexpected trailing data")
+				}
+				return nil
+			}(); err != nil {
+				err = &ogenerrors.DecodeBodyError{
+					ContentType: ct,
+					Body:        buf,
+					Err:         err,
+				}
+				return res, err
+			}
+			var wrapper WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders
+			wrapper.Response = response
+			h := uri.NewHeaderDecoder(resp.Header)
+			// Parse "Connection" header.
+			{
+				cfg := uri.HeaderParameterDecodingConfig{
+					Name:    "Connection",
+					Explode: false,
+				}
+				if err := func() error {
+					if err := h.HasParam(cfg); err == nil {
+						if err := h.DecodeParam(cfg, func(d uri.Decoder) error {
+							var wrapperDotConnectionVal string
+							if err := func() error {
+								val, err := d.DecodeValue()
+								if err != nil {
+									return err
+								}
+
+								c, err := conv.ToString(val)
+								if err != nil {
+									return err
+								}
+
+								wrapperDotConnectionVal = c
+								return nil
+							}(); err != nil {
+								return err
+							}
+							wrapper.Connection.SetTo(wrapperDotConnectionVal)
+							return nil
+						}); err != nil {
+							return err
+						}
+					}
+					return nil
+				}(); err != nil {
+					return res, errors.Wrap(err, "parse Connection header")
+				}
+			}
+			// Parse "Content-Length" header.
+			{
+				cfg := uri.HeaderParameterDecodingConfig{
+					Name:    "Content-Length",
+					Explode: false,
+				}
+				if err := func() error {
+					if err := h.HasParam(cfg); err == nil {
+						if err := h.DecodeParam(cfg, func(d uri.Decoder) error {
+							var wrapperDotContentLengthVal int
+							if err := func() error {
+								val, err := d.DecodeValue()
+								if err != nil {
+									return err
+								}
+
+								c, err := conv.ToInt(val)
+								if err != nil {
+									return err
+								}
+
+								wrapperDotContentLengthVal = c
+								return nil
+							}(); err != nil {
+								return err
+							}
+							wrapper.ContentLength.SetTo(wrapperDotContentLengthVal)
+							return nil
+						}); err != nil {
+							return err
+						}
+					}
+					return nil
+				}(); err != nil {
+					return res, errors.Wrap(err, "parse Content-Length header")
+				}
+			}
+			// Parse "Date" header.
+			{
+				cfg := uri.HeaderParameterDecodingConfig{
+					Name:    "Date",
+					Explode: false,
+				}
+				if err := func() error {
+					if err := h.HasParam(cfg); err == nil {
+						if err := h.DecodeParam(cfg, func(d uri.Decoder) error {
+							var wrapperDotDateVal string
+							if err := func() error {
+								val, err := d.DecodeValue()
+								if err != nil {
+									return err
+								}
+
+								c, err := conv.ToString(val)
+								if err != nil {
+									return err
+								}
+
+								wrapperDotDateVal = c
+								return nil
+							}(); err != nil {
+								return err
+							}
+							wrapper.Date.SetTo(wrapperDotDateVal)
+							return nil
+						}); err != nil {
+							return err
+						}
+					}
+					return nil
+				}(); err != nil {
+					return res, errors.Wrap(err, "parse Date header")
+				}
+			}
+			// Parse "Server" header.
+			{
+				cfg := uri.HeaderParameterDecodingConfig{
+					Name:    "Server",
+					Explode: false,
+				}
+				if err := func() error {
+					if err := h.HasParam(cfg); err == nil {
+						if err := h.DecodeParam(cfg, func(d uri.Decoder) error {
+							var wrapperDotServerVal string
+							if err := func() error {
+								val, err := d.DecodeValue()
+								if err != nil {
+									return err
+								}
+
+								c, err := conv.ToString(val)
+								if err != nil {
+									return err
+								}
+
+								wrapperDotServerVal = c
+								return nil
+							}(); err != nil {
+								return err
+							}
+							wrapper.Server.SetTo(wrapperDotServerVal)
+							return nil
+						}); err != nil {
+							return err
+						}
+					}
+					return nil
+				}(); err != nil {
+					return res, errors.Wrap(err, "parse Server header")
+				}
+			}
+			return &wrapper, nil
+		default:
+			return res, validate.InvalidContentType(ct)
+		}
+	}
+	return res, validate.UnexpectedStatusCodeWithResponse(resp)
+}
+
 func decodeWaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetResponse(resp *http.Response) (res *WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetOKHeaders, _ error) {
 	switch resp.StatusCode {
 	case 200:
@@ -23952,6 +24144,52 @@ func decodeWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRespons
 		}
 	}
 	return res, validate.UnexpectedStatusCodeWithResponse(resp)
+}
+
+func decodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostResponse(resp *http.Response) (res *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, _ error) {
+	// Default response.
+	res, err := func() (res *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, err error) {
+		ct, _, err := mime.ParseMediaType(resp.Header.Get("Content-Type"))
+		if err != nil {
+			return res, errors.Wrap(err, "parse media type")
+		}
+		switch {
+		case ct == "application/json":
+			buf, err := io.ReadAll(resp.Body)
+			if err != nil {
+				return res, err
+			}
+			d := jx.DecodeBytes(buf)
+
+			var response WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef
+			if err := func() error {
+				if err := response.Decode(d); err != nil {
+					return err
+				}
+				if err := d.Skip(); err != io.EOF {
+					return errors.New("unexpected trailing data")
+				}
+				return nil
+			}(); err != nil {
+				err = &ogenerrors.DecodeBodyError{
+					ContentType: ct,
+					Body:        buf,
+					Err:         err,
+				}
+				return res, err
+			}
+			return &WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode{
+				StatusCode: resp.StatusCode,
+				Response:   response,
+			}, nil
+		default:
+			return res, validate.InvalidContentType(ct)
+		}
+	}()
+	if err != nil {
+		return res, errors.Wrapf(err, "default (code %d)", resp.StatusCode)
+	}
+	return res, nil
 }
 
 func decodeWaInstanceIdInstanceSendContactApiTokenInstancePostResponse(resp *http.Response) (res WaInstanceIdInstanceSendContactApiTokenInstancePostRes, _ error) {

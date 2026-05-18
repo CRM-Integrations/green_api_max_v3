@@ -18,6 +18,7 @@ func encodeWaInstanceIdInstanceAddGroupParticipantApiTokenInstancePostResponse(r
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceAddGroupParticipantApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -335,6 +336,7 @@ func encodeWaInstanceIdInstanceAddGroupParticipantApiTokenInstancePostResponse(r
 
 	case *WaInstanceIdInstanceAddGroupParticipantApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -659,6 +661,7 @@ func encodeWaInstanceIdInstanceCheckAccountApiTokenInstancePostResponse(response
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceCheckAccountApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -946,6 +949,7 @@ func encodeWaInstanceIdInstanceCheckAccountApiTokenInstancePostResponse(response
 
 	case *WaInstanceIdInstanceCheckAccountApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -1238,6 +1242,7 @@ func encodeWaInstanceIdInstanceCheckAccountApiTokenInstancePostResponse(response
 
 func encodeWaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGetResponse(response *WaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -1316,6 +1321,7 @@ func encodeWaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGetResponse(res
 
 func encodeWaInstanceIdInstanceClearWebhooksQueueApiTokenInstanceDeleteResponse(response *WaInstanceIdInstanceClearWebhooksQueueApiTokenInstanceDeleteOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -1396,6 +1402,7 @@ func encodeWaInstanceIdInstanceCreateGroupApiTokenInstancePostResponse(response 
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceCreateGroupApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -1713,6 +1720,7 @@ func encodeWaInstanceIdInstanceCreateGroupApiTokenInstancePostResponse(response 
 
 	case *WaInstanceIdInstanceCreateGroupApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -2037,6 +2045,7 @@ func encodeWaInstanceIdInstanceDeleteMessageApiTokenInstancePostResponse(respons
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceDeleteMessageApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Keep-Alive,Referrer-Policy,Strict-Transport-Security,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -2324,6 +2333,7 @@ func encodeWaInstanceIdInstanceDeleteMessageApiTokenInstancePostResponse(respons
 
 	case *WaInstanceIdInstanceDeleteMessageApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Keep-Alive,Referrer-Policy,Strict-Transport-Security,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -2632,6 +2642,7 @@ func encodeWaInstanceIdInstanceDownloadFileApiTokenInstancePostResponse(response
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceDownloadFileApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server,Strict-Transport-Security,Vary,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Request-Id")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -2783,6 +2794,7 @@ func encodeWaInstanceIdInstanceDownloadFileApiTokenInstancePostResponse(response
 		return nil
 
 	case *WaInstanceIdInstanceDownloadFileApiTokenInstancePostBadRequest:
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -3116,6 +3128,7 @@ func encodeWaInstanceIdInstanceEditMessageApiTokenInstancePostResponse(response 
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceEditMessageApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Keep-Alive,Referrer-Policy,Strict-Transport-Security,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -3403,6 +3416,7 @@ func encodeWaInstanceIdInstanceEditMessageApiTokenInstancePostResponse(response 
 
 	case *WaInstanceIdInstanceEditMessageApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Keep-Alive,Referrer-Policy,Strict-Transport-Security,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -3693,8 +3707,88 @@ func encodeWaInstanceIdInstanceEditMessageApiTokenInstancePostResponse(response 
 	}
 }
 
+func encodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostResponse(response *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, w http.ResponseWriter, span trace.Span) error {
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
+	// Encoding response headers.
+	{
+		h := uri.NewHeaderEncoder(w.Header())
+		// Encode "Connection" header.
+		{
+			cfg := uri.HeaderParameterEncodingConfig{
+				Name:    "Connection",
+				Explode: false,
+			}
+			if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+				if val, ok := response.Connection.Get(); ok {
+					return e.EncodeValue(conv.StringToString(val))
+				}
+				return nil
+			}); err != nil {
+				return errors.Wrap(err, "encode Connection header")
+			}
+		}
+		// Encode "Content-Length" header.
+		{
+			cfg := uri.HeaderParameterEncodingConfig{
+				Name:    "Content-Length",
+				Explode: false,
+			}
+			if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+				if val, ok := response.ContentLength.Get(); ok {
+					return e.EncodeValue(conv.IntToString(val))
+				}
+				return nil
+			}); err != nil {
+				return errors.Wrap(err, "encode Content-Length header")
+			}
+		}
+		// Encode "Date" header.
+		{
+			cfg := uri.HeaderParameterEncodingConfig{
+				Name:    "Date",
+				Explode: false,
+			}
+			if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+				if val, ok := response.Date.Get(); ok {
+					return e.EncodeValue(conv.StringToString(val))
+				}
+				return nil
+			}); err != nil {
+				return errors.Wrap(err, "encode Date header")
+			}
+		}
+		// Encode "Server" header.
+		{
+			cfg := uri.HeaderParameterEncodingConfig{
+				Name:    "Server",
+				Explode: false,
+			}
+			if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+				if val, ok := response.Server.Get(); ok {
+					return e.EncodeValue(conv.StringToString(val))
+				}
+				return nil
+			}); err != nil {
+				return errors.Wrap(err, "encode Server header")
+			}
+		}
+	}
+	w.WriteHeader(200)
+	span.SetStatus(codes.Ok, http.StatusText(200))
+
+	e := new(jx.Encoder)
+	response.Response.Encode(e)
+	if _, err := e.WriteTo(w); err != nil {
+		return errors.Wrap(err, "write")
+	}
+
+	return nil
+}
+
 func encodeWaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -4030,6 +4124,7 @@ func encodeWaInstanceIdInstanceGetAvatarApiTokenInstancePostResponse(response Wa
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceGetAvatarApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -4362,6 +4457,7 @@ func encodeWaInstanceIdInstanceGetAvatarApiTokenInstancePostResponse(response Wa
 
 	case *WaInstanceIdInstanceGetAvatarApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -4701,6 +4797,7 @@ func encodeWaInstanceIdInstanceGetChatHistoryApiTokenInstancePostResponse(respon
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceGetChatHistoryApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -4782,6 +4879,7 @@ func encodeWaInstanceIdInstanceGetChatHistoryApiTokenInstancePostResponse(respon
 
 	case *WaInstanceIdInstanceGetChatHistoryApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -4864,6 +4962,7 @@ func encodeWaInstanceIdInstanceGetChatHistoryApiTokenInstancePostResponse(respon
 
 func encodeWaInstanceIdInstanceGetChatsApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetChatsApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Strict-Transport-Security,Vary,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -4993,6 +5092,7 @@ func encodeWaInstanceIdInstanceGetContactInfoApiTokenInstancePostResponse(respon
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceGetContactInfoApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -5280,6 +5380,7 @@ func encodeWaInstanceIdInstanceGetContactInfoApiTokenInstancePostResponse(respon
 
 	case *WaInstanceIdInstanceGetContactInfoApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -5572,6 +5673,7 @@ func encodeWaInstanceIdInstanceGetContactInfoApiTokenInstancePostResponse(respon
 
 func encodeWaInstanceIdInstanceGetContactsApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetContactsApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -5656,6 +5758,7 @@ func encodeWaInstanceIdInstanceGetGroupDataApiTokenInstancePostResponse(response
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceGetGroupDataApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -5987,6 +6090,7 @@ func encodeWaInstanceIdInstanceGetGroupDataApiTokenInstancePostResponse(response
 		return nil
 
 	case *WaInstanceIdInstanceGetGroupDataApiTokenInstancePostBadRequest:
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -6351,6 +6455,7 @@ func encodeWaInstanceIdInstanceGetMessageApiTokenInstancePostResponse(response W
 
 func encodeWaInstanceIdInstanceGetMessagesCountApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetMessagesCountApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Xss-Protection")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -6639,6 +6744,7 @@ func encodeWaInstanceIdInstanceGetMessagesCountApiTokenInstanceGetResponse(respo
 
 func encodeWaInstanceIdInstanceGetSettingsApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetSettingsApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -6717,6 +6823,7 @@ func encodeWaInstanceIdInstanceGetSettingsApiTokenInstanceGetResponse(response *
 
 func encodeWaInstanceIdInstanceGetStateInstanceApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetStateInstanceApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -6795,6 +6902,7 @@ func encodeWaInstanceIdInstanceGetStateInstanceApiTokenInstanceGetResponse(respo
 
 func encodeWaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGetResponse(response *WaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -6873,6 +6981,7 @@ func encodeWaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGetResponse(respo
 
 func encodeWaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceGetResponse(response *WaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -6955,6 +7064,7 @@ func encodeWaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceGetResponse(r
 
 func encodeWaInstanceIdInstanceLastOutgoingMessagesApiTokenInstanceGetResponse(response *WaInstanceIdInstanceLastOutgoingMessagesApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -7039,6 +7149,7 @@ func encodeWaInstanceIdInstanceLeaveGroupApiTokenInstancePostResponse(response W
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceLeaveGroupApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -7356,6 +7467,7 @@ func encodeWaInstanceIdInstanceLeaveGroupApiTokenInstancePostResponse(response W
 
 	case *WaInstanceIdInstanceLeaveGroupApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -7678,6 +7790,7 @@ func encodeWaInstanceIdInstanceLeaveGroupApiTokenInstancePostResponse(response W
 
 func encodeWaInstanceIdInstanceLogoutApiTokenInstanceGetResponse(response *WaInstanceIdInstanceLogoutApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -7784,6 +7897,7 @@ func encodeWaInstanceIdInstanceReadChatApiTokenInstancePostResponse(response WaI
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceReadChatApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -8116,6 +8230,7 @@ func encodeWaInstanceIdInstanceReadChatApiTokenInstancePostResponse(response WaI
 
 	case *WaInstanceIdInstanceReadChatApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -8453,6 +8568,7 @@ func encodeWaInstanceIdInstanceReadChatApiTokenInstancePostResponse(response WaI
 
 func encodeWaInstanceIdInstanceRebootApiTokenInstanceGetResponse(response *WaInstanceIdInstanceRebootApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -8547,6 +8663,7 @@ func encodeWaInstanceIdInstanceRemoveAdminApiTokenInstancePostResponse(response 
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceRemoveAdminApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -8864,6 +8981,7 @@ func encodeWaInstanceIdInstanceRemoveAdminApiTokenInstancePostResponse(response 
 
 	case *WaInstanceIdInstanceRemoveAdminApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -9188,6 +9306,7 @@ func encodeWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRespons
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -9505,6 +9624,7 @@ func encodeWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRespons
 
 	case *WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -9825,10 +9945,37 @@ func encodeWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRespons
 	}
 }
 
+func encodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostResponse(response *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, w http.ResponseWriter, span trace.Span) error {
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	code := response.StatusCode
+	if code == 0 {
+		// Set default status code.
+		code = http.StatusOK
+	}
+	w.WriteHeader(code)
+	if st := http.StatusText(code); code >= http.StatusBadRequest {
+		span.SetStatus(codes.Error, st)
+	} else {
+		span.SetStatus(codes.Ok, st)
+	}
+
+	e := new(jx.Encoder)
+	response.Response.Encode(e)
+	if _, err := e.WriteTo(w); err != nil {
+		return errors.Wrap(err, "write")
+	}
+
+	if code >= http.StatusInternalServerError {
+		return errors.Wrapf(ht.ErrInternalServerErrorResponse, "code: %d, message: %s", code, http.StatusText(code))
+	}
+	return nil
+}
+
 func encodeWaInstanceIdInstanceSendContactApiTokenInstancePostResponse(response WaInstanceIdInstanceSendContactApiTokenInstancePostRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSendContactApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -9906,6 +10053,7 @@ func encodeWaInstanceIdInstanceSendContactApiTokenInstancePostResponse(response 
 
 	case *WaInstanceIdInstanceSendContactApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -9990,6 +10138,7 @@ func encodeWaInstanceIdInstanceSendFileByUploadApiTokenInstancePostResponse(resp
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSendFileByUploadApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server,Strict-Transport-Security")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10082,6 +10231,7 @@ func encodeWaInstanceIdInstanceSendFileByUploadApiTokenInstancePostResponse(resp
 
 	case *WaInstanceIdInstanceSendFileByUploadApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Strict-Transport-Security")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10166,6 +10316,7 @@ func encodeWaInstanceIdInstanceSendFileByUrlApiTokenInstancePostResponse(respons
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10243,6 +10394,7 @@ func encodeWaInstanceIdInstanceSendFileByUrlApiTokenInstancePostResponse(respons
 
 	case *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10327,6 +10479,7 @@ func encodeWaInstanceIdInstanceSendLocationApiTokenInstancePostResponse(response
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSendLocationApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10404,6 +10557,7 @@ func encodeWaInstanceIdInstanceSendLocationApiTokenInstancePostResponse(response
 
 	case *WaInstanceIdInstanceSendLocationApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10488,6 +10642,7 @@ func encodeWaInstanceIdInstanceSendMessageApiTokenInstancePostResponse(response 
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSendMessageApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10565,6 +10720,7 @@ func encodeWaInstanceIdInstanceSendMessageApiTokenInstancePostResponse(response 
 
 	case *WaInstanceIdInstanceSendMessageApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10648,6 +10804,7 @@ func encodeWaInstanceIdInstanceSendMessageApiTokenInstancePostResponse(response 
 func encodeWaInstanceIdInstanceSendTypingApiTokenInstancePostResponse(response WaInstanceIdInstanceSendTypingApiTokenInstancePostRes, w http.ResponseWriter, span trace.Span) error {
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSendTypingApiTokenInstancePostOK:
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -10944,6 +11101,7 @@ func encodeWaInstanceIdInstanceSendTypingApiTokenInstancePostResponse(response W
 
 	case *WaInstanceIdInstanceSendTypingApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -11268,6 +11426,7 @@ func encodeWaInstanceIdInstanceSetGroupAdminApiTokenInstancePostResponse(respons
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSetGroupAdminApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -11585,6 +11744,7 @@ func encodeWaInstanceIdInstanceSetGroupAdminApiTokenInstancePostResponse(respons
 
 	case *WaInstanceIdInstanceSetGroupAdminApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -11909,6 +12069,7 @@ func encodeWaInstanceIdInstanceSetGroupPictureApiTokenInstancePostResponse(respo
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSetGroupPictureApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -12226,6 +12387,7 @@ func encodeWaInstanceIdInstanceSetGroupPictureApiTokenInstancePostResponse(respo
 
 	case *WaInstanceIdInstanceSetGroupPictureApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -12550,6 +12712,7 @@ func encodeWaInstanceIdInstanceSetProfilePictureApiTokenInstancePostResponse(res
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceSetProfilePictureApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -12627,6 +12790,7 @@ func encodeWaInstanceIdInstanceSetProfilePictureApiTokenInstancePostResponse(res
 
 	case *WaInstanceIdInstanceSetProfilePictureApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -12709,6 +12873,7 @@ func encodeWaInstanceIdInstanceSetProfilePictureApiTokenInstancePostResponse(res
 
 func encodeWaInstanceIdInstanceSetSettingsApiTokenInstancePostResponse(response *WaInstanceIdInstanceSetSettingsApiTokenInstancePostOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -12787,6 +12952,7 @@ func encodeWaInstanceIdInstanceSetSettingsApiTokenInstancePostResponse(response 
 
 func encodeWaInstanceIdInstanceShowMessagesQueueApiTokenInstanceGetResponse(response *WaInstanceIdInstanceShowMessagesQueueApiTokenInstanceGetOKHeaders, w http.ResponseWriter, span trace.Span) error {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 	// Encoding response headers.
 	{
 		h := uri.NewHeaderEncoder(w.Header())
@@ -12871,6 +13037,7 @@ func encodeWaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostResponse(respo
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -13188,6 +13355,7 @@ func encodeWaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostResponse(respo
 
 	case *WaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -13512,6 +13680,7 @@ func encodeWaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePostResponse(r
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -13829,6 +13998,7 @@ func encodeWaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePostResponse(r
 
 	case *WaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -14153,6 +14323,7 @@ func encodeWaInstanceIdInstanceUploadFileApiTokenInstancePostResponse(response W
 	switch response := response.(type) {
 	case *WaInstanceIdInstanceUploadFileApiTokenInstancePostOKHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Connection,Date,Server")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())
@@ -14230,6 +14401,7 @@ func encodeWaInstanceIdInstanceUploadFileApiTokenInstancePostResponse(response W
 
 	case *WaInstanceIdInstanceUploadFileApiTokenInstancePostBadRequestHeaders:
 		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Header().Set("Access-Control-Expose-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Connection,Content-Security-Policy,Date,Etag,Expect-Ct,Referrer-Policy,Server,Strict-Transport-Security,Vary,X-Content-Type-Options,X-Dns-Prefetch-Control,X-Download-Options,X-Frame-Options,X-Permitted-Cross-Domain-Policies,X-Ratelimit-Remaining,X-Ratelimit-Replenish-Rate,X-Xss-Protection")
 		// Encoding response headers.
 		{
 			h := uri.NewHeaderEncoder(w.Header())

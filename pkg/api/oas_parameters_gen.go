@@ -1129,6 +1129,174 @@ func decodeWaInstanceIdInstanceEditMessageApiTokenInstancePostParams(args [2]str
 	return params, nil
 }
 
+// WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams is parameters of POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance} operation.
+type WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams struct {
+	UserAgent        OptString `json:",omitempty,omitzero"`
+	IdInstance       string
+	ApiTokenInstance string
+}
+
+func unpackWaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams(packed middleware.Parameters) (params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams) {
+	{
+		key := middleware.ParameterKey{
+			Name: "User-Agent",
+			In:   "header",
+		}
+		if v, ok := packed[key]; ok {
+			params.UserAgent = v.(OptString)
+		}
+	}
+	{
+		key := middleware.ParameterKey{
+			Name: "idInstance",
+			In:   "path",
+		}
+		params.IdInstance = packed[key].(string)
+	}
+	{
+		key := middleware.ParameterKey{
+			Name: "apiTokenInstance",
+			In:   "path",
+		}
+		params.ApiTokenInstance = packed[key].(string)
+	}
+	return params
+}
+
+func decodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams(args [2]string, argsEscaped bool, r *http.Request) (params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams, _ error) {
+	h := uri.NewHeaderDecoder(r.Header)
+	// Decode header: User-Agent.
+	if err := func() error {
+		cfg := uri.HeaderParameterDecodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.HasParam(cfg); err == nil {
+			if err := h.DecodeParam(cfg, func(d uri.Decoder) error {
+				var paramsDotUserAgentVal string
+				if err := func() error {
+					val, err := d.DecodeValue()
+					if err != nil {
+						return err
+					}
+
+					c, err := conv.ToString(val)
+					if err != nil {
+						return err
+					}
+
+					paramsDotUserAgentVal = c
+					return nil
+				}(); err != nil {
+					return err
+				}
+				params.UserAgent.SetTo(paramsDotUserAgentVal)
+				return nil
+			}); err != nil {
+				return err
+			}
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "User-Agent",
+			In:   "header",
+			Err:  err,
+		}
+	}
+	// Decode path: idInstance.
+	if err := func() error {
+		param := args[0]
+		if argsEscaped {
+			unescaped, err := url.PathUnescape(args[0])
+			if err != nil {
+				return errors.Wrap(err, "unescape path")
+			}
+			param = unescaped
+		}
+		if len(param) > 0 {
+			d := uri.NewPathDecoder(uri.PathDecoderConfig{
+				Param:   "idInstance",
+				Value:   param,
+				Style:   uri.PathStyleSimple,
+				Explode: false,
+			})
+
+			if err := func() error {
+				val, err := d.DecodeValue()
+				if err != nil {
+					return err
+				}
+
+				c, err := conv.ToString(val)
+				if err != nil {
+					return err
+				}
+
+				params.IdInstance = c
+				return nil
+			}(); err != nil {
+				return err
+			}
+		} else {
+			return validate.ErrFieldRequired
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "idInstance",
+			In:   "path",
+			Err:  err,
+		}
+	}
+	// Decode path: apiTokenInstance.
+	if err := func() error {
+		param := args[1]
+		if argsEscaped {
+			unescaped, err := url.PathUnescape(args[1])
+			if err != nil {
+				return errors.Wrap(err, "unescape path")
+			}
+			param = unescaped
+		}
+		if len(param) > 0 {
+			d := uri.NewPathDecoder(uri.PathDecoderConfig{
+				Param:   "apiTokenInstance",
+				Value:   param,
+				Style:   uri.PathStyleSimple,
+				Explode: false,
+			})
+
+			if err := func() error {
+				val, err := d.DecodeValue()
+				if err != nil {
+					return err
+				}
+
+				c, err := conv.ToString(val)
+				if err != nil {
+					return err
+				}
+
+				params.ApiTokenInstance = c
+				return nil
+			}(); err != nil {
+				return err
+			}
+		} else {
+			return validate.ErrFieldRequired
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "apiTokenInstance",
+			In:   "path",
+			Err:  err,
+		}
+	}
+	return params, nil
+}
+
 // WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetParams is parameters of GET /waInstance{idInstance}/getAccountSettings/{apiTokenInstance} operation.
 type WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetParams struct {
 	IdInstance       string
@@ -3842,6 +4010,124 @@ func unpackWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostParams(
 }
 
 func decodeWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostParams(args [2]string, argsEscaped bool, r *http.Request) (params WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostParams, _ error) {
+	// Decode path: idInstance.
+	if err := func() error {
+		param := args[0]
+		if argsEscaped {
+			unescaped, err := url.PathUnescape(args[0])
+			if err != nil {
+				return errors.Wrap(err, "unescape path")
+			}
+			param = unescaped
+		}
+		if len(param) > 0 {
+			d := uri.NewPathDecoder(uri.PathDecoderConfig{
+				Param:   "idInstance",
+				Value:   param,
+				Style:   uri.PathStyleSimple,
+				Explode: false,
+			})
+
+			if err := func() error {
+				val, err := d.DecodeValue()
+				if err != nil {
+					return err
+				}
+
+				c, err := conv.ToString(val)
+				if err != nil {
+					return err
+				}
+
+				params.IdInstance = c
+				return nil
+			}(); err != nil {
+				return err
+			}
+		} else {
+			return validate.ErrFieldRequired
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "idInstance",
+			In:   "path",
+			Err:  err,
+		}
+	}
+	// Decode path: apiTokenInstance.
+	if err := func() error {
+		param := args[1]
+		if argsEscaped {
+			unescaped, err := url.PathUnescape(args[1])
+			if err != nil {
+				return errors.Wrap(err, "unescape path")
+			}
+			param = unescaped
+		}
+		if len(param) > 0 {
+			d := uri.NewPathDecoder(uri.PathDecoderConfig{
+				Param:   "apiTokenInstance",
+				Value:   param,
+				Style:   uri.PathStyleSimple,
+				Explode: false,
+			})
+
+			if err := func() error {
+				val, err := d.DecodeValue()
+				if err != nil {
+					return err
+				}
+
+				c, err := conv.ToString(val)
+				if err != nil {
+					return err
+				}
+
+				params.ApiTokenInstance = c
+				return nil
+			}(); err != nil {
+				return err
+			}
+		} else {
+			return validate.ErrFieldRequired
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "apiTokenInstance",
+			In:   "path",
+			Err:  err,
+		}
+	}
+	return params, nil
+}
+
+// WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams is parameters of POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance} operation.
+type WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams struct {
+	IdInstance       string
+	ApiTokenInstance string
+}
+
+func unpackWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams(packed middleware.Parameters) (params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams) {
+	{
+		key := middleware.ParameterKey{
+			Name: "idInstance",
+			In:   "path",
+		}
+		params.IdInstance = packed[key].(string)
+	}
+	{
+		key := middleware.ParameterKey{
+			Name: "apiTokenInstance",
+			In:   "path",
+		}
+		params.ApiTokenInstance = packed[key].(string)
+	}
+	return params
+}
+
+func decodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams(args [2]string, argsEscaped bool, r *http.Request) (params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams, _ error) {
 	// Decode path: idInstance.
 	if err := func() error {
 		param := args[0]

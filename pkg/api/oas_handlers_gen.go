@@ -14,7 +14,7 @@ import (
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/metric"
-	semconv "go.opentelemetry.io/otel/semconv/v1.37.0"
+	semconv "go.opentelemetry.io/otel/semconv/v1.39.0"
 	"go.opentelemetry.io/otel/trace"
 )
 
@@ -45,6 +45,8 @@ func (s *Server) handleWaInstanceIdInstanceAddGroupParticipantApiTokenInstancePo
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/addGroupParticipant/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceAddGroupParticipantApiTokenInstancePostOperation,
@@ -204,6 +206,8 @@ func (s *Server) handleWaInstanceIdInstanceCheckAccountApiTokenInstancePostReque
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/checkAccount/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceCheckAccountApiTokenInstancePostOperation,
@@ -364,6 +368,8 @@ func (s *Server) handleWaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGet
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/clearMessagesQueue/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGetOperation,
@@ -509,6 +515,8 @@ func (s *Server) handleWaInstanceIdInstanceClearWebhooksQueueApiTokenInstanceDel
 		semconv.HTTPRequestMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/clearWebhooksQueue/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceClearWebhooksQueueApiTokenInstanceDeleteOperation,
@@ -653,6 +661,8 @@ func (s *Server) handleWaInstanceIdInstanceCreateGroupApiTokenInstancePostReques
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/createGroup/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceCreateGroupApiTokenInstancePostOperation,
@@ -812,6 +822,8 @@ func (s *Server) handleWaInstanceIdInstanceDeleteMessageApiTokenInstancePostRequ
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/deleteMessage/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceDeleteMessageApiTokenInstancePostOperation,
@@ -972,6 +984,8 @@ func (s *Server) handleWaInstanceIdInstanceDeleteNotificationApiTokenInstanceRec
 		semconv.HTTPRequestMethodKey.String("DELETE"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/deleteNotification/{apiTokenInstance}/{receiptId}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceDeleteNotificationApiTokenInstanceReceiptIdDeleteOperation,
@@ -1121,6 +1135,8 @@ func (s *Server) handleWaInstanceIdInstanceDownloadFileApiTokenInstancePostReque
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/downloadFile/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceDownloadFileApiTokenInstancePostOperation,
@@ -1280,6 +1296,8 @@ func (s *Server) handleWaInstanceIdInstanceEditMessageApiTokenInstancePostReques
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/editMessage/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceEditMessageApiTokenInstancePostOperation,
@@ -1427,6 +1445,172 @@ func (s *Server) handleWaInstanceIdInstanceEditMessageApiTokenInstancePostReques
 	}
 }
 
+// handleWaInstanceIdInstanceForwardMessagesApiTokenInstancePostRequest handles POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance} operation.
+//
+// Документация [ForwardMessages](https://green-api.
+// com/v3/docs/api/sending/ForwardMessages/).
+//
+// POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance}
+func (s *Server) handleWaInstanceIdInstanceForwardMessagesApiTokenInstancePostRequest(args [2]string, argsEscaped bool, w http.ResponseWriter, r *http.Request) {
+	statusWriter := &codeRecorder{ResponseWriter: w}
+	w = statusWriter
+	otelAttrs := []attribute.KeyValue{
+		semconv.HTTPRequestMethodKey.String("POST"),
+		semconv.HTTPRouteKey.String("/waInstance{idInstance}/forwardMessages/{apiTokenInstance}"),
+	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
+
+	// Start a span for this request.
+	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOperation,
+		trace.WithAttributes(otelAttrs...),
+		serverSpanKind,
+	)
+	defer span.End()
+
+	// Add Labeler to context.
+	labeler := &Labeler{attrs: otelAttrs}
+	ctx = contextWithLabeler(ctx, labeler)
+
+	// Run stopwatch.
+	startTime := time.Now()
+	defer func() {
+		elapsedDuration := time.Since(startTime)
+
+		attrSet := labeler.AttributeSet()
+		attrs := attrSet.ToSlice()
+		code := statusWriter.status
+		if code != 0 {
+			codeAttr := semconv.HTTPResponseStatusCode(code)
+			attrs = append(attrs, codeAttr)
+			span.SetAttributes(codeAttr)
+		}
+		attrOpt := metric.WithAttributes(attrs...)
+
+		// Increment request counter.
+		s.requests.Add(ctx, 1, attrOpt)
+
+		// Use floating point division here for higher precision (instead of Millisecond method).
+		s.duration.Record(ctx, float64(elapsedDuration)/float64(time.Millisecond), attrOpt)
+	}()
+
+	var (
+		recordError = func(stage string, err error) {
+			span.RecordError(err)
+
+			// https://opentelemetry.io/docs/specs/semconv/http/http-spans/#status
+			// Span Status MUST be left unset if HTTP status code was in the 1xx, 2xx or 3xx ranges,
+			// unless there was another error (e.g., network error receiving the response body; or 3xx codes with
+			// max redirects exceeded), in which case status MUST be set to Error.
+			code := statusWriter.status
+			if code < 100 || code >= 500 {
+				span.SetStatus(codes.Error, stage)
+			}
+
+			attrSet := labeler.AttributeSet()
+			attrs := attrSet.ToSlice()
+			if code != 0 {
+				attrs = append(attrs, semconv.HTTPResponseStatusCode(code))
+			}
+
+			s.errors.Add(ctx, 1, metric.WithAttributes(attrs...))
+		}
+		err          error
+		opErrContext = ogenerrors.OperationContext{
+			Name: WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOperation,
+			ID:   "",
+		}
+	)
+	params, err := decodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams(args, argsEscaped, r)
+	if err != nil {
+		err = &ogenerrors.DecodeParamsError{
+			OperationContext: opErrContext,
+			Err:              err,
+		}
+		defer recordError("DecodeParams", err)
+		s.cfg.ErrorHandler(ctx, w, r, err)
+		return
+	}
+
+	var rawBody []byte
+	request, rawBody, close, err := s.decodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostRequest(r)
+	if err != nil {
+		err = &ogenerrors.DecodeRequestError{
+			OperationContext: opErrContext,
+			Err:              err,
+		}
+		defer recordError("DecodeRequest", err)
+		s.cfg.ErrorHandler(ctx, w, r, err)
+		return
+	}
+	defer func() {
+		if err := close(); err != nil {
+			recordError("CloseRequest", err)
+		}
+	}()
+
+	var response *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders
+	if m := s.cfg.Middleware; m != nil {
+		mreq := middleware.Request{
+			Context:          ctx,
+			OperationName:    WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOperation,
+			OperationSummary: "Переслать сообщения",
+			OperationID:      "",
+			Body:             request,
+			RawBody:          rawBody,
+			Params: middleware.Parameters{
+				{
+					Name: "User-Agent",
+					In:   "header",
+				}: params.UserAgent,
+				{
+					Name: "idInstance",
+					In:   "path",
+				}: params.IdInstance,
+				{
+					Name: "apiTokenInstance",
+					In:   "path",
+				}: params.ApiTokenInstance,
+			},
+			Raw: r,
+		}
+
+		type (
+			Request  = OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq
+			Params   = WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams
+			Response = *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders
+		)
+		response, err = middleware.HookMiddleware[
+			Request,
+			Params,
+			Response,
+		](
+			m,
+			mreq,
+			unpackWaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams,
+			func(ctx context.Context, request Request, params Params) (response Response, err error) {
+				response, err = s.h.WaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx, request, params)
+				return response, err
+			},
+		)
+	} else {
+		response, err = s.h.WaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx, request, params)
+	}
+	if err != nil {
+		defer recordError("Internal", err)
+		s.cfg.ErrorHandler(ctx, w, r, err)
+		return
+	}
+
+	if err := encodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostResponse(response, w, span); err != nil {
+		defer recordError("EncodeResponse", err)
+		if !errors.Is(err, ht.ErrInternalServerErrorResponse) {
+			s.cfg.ErrorHandler(ctx, w, r, err)
+		}
+		return
+	}
+}
+
 // handleWaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetRequest handles GET /waInstance{idInstance}/getAccountSettings/{apiTokenInstance} operation.
 //
 // Документация [GetAccountSettings](https://green-api.
@@ -1440,6 +1624,8 @@ func (s *Server) handleWaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGet
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getAccountSettings/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetOperation,
@@ -1599,6 +1785,8 @@ func (s *Server) handleWaInstanceIdInstanceGetAvatarApiTokenInstancePostRequest(
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getAvatar/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetAvatarApiTokenInstancePostOperation,
@@ -1759,6 +1947,8 @@ func (s *Server) handleWaInstanceIdInstanceGetChatHistoryApiTokenInstancePostReq
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getChatHistory/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetChatHistoryApiTokenInstancePostOperation,
@@ -1918,6 +2108,8 @@ func (s *Server) handleWaInstanceIdInstanceGetChatsApiTokenInstanceGetRequest(ar
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/GetChats/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetChatsApiTokenInstanceGetOperation,
@@ -2063,6 +2255,8 @@ func (s *Server) handleWaInstanceIdInstanceGetContactInfoApiTokenInstancePostReq
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/GetContactInfo/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetContactInfoApiTokenInstancePostOperation,
@@ -2222,6 +2416,8 @@ func (s *Server) handleWaInstanceIdInstanceGetContactsApiTokenInstanceGetRequest
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getContacts/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetContactsApiTokenInstanceGetOperation,
@@ -2366,6 +2562,8 @@ func (s *Server) handleWaInstanceIdInstanceGetGroupDataApiTokenInstancePostReque
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getGroupData/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetGroupDataApiTokenInstancePostOperation,
@@ -2525,6 +2723,8 @@ func (s *Server) handleWaInstanceIdInstanceGetMessageApiTokenInstancePostRequest
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getMessage/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetMessageApiTokenInstancePostOperation,
@@ -2685,6 +2885,8 @@ func (s *Server) handleWaInstanceIdInstanceGetMessagesCountApiTokenInstanceGetRe
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getMessagesCount/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetMessagesCountApiTokenInstanceGetOperation,
@@ -2829,6 +3031,8 @@ func (s *Server) handleWaInstanceIdInstanceGetSettingsApiTokenInstanceGetRequest
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getSettings/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetSettingsApiTokenInstanceGetOperation,
@@ -2974,6 +3178,8 @@ func (s *Server) handleWaInstanceIdInstanceGetStateInstanceApiTokenInstanceGetRe
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getStateInstance/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetStateInstanceApiTokenInstanceGetOperation,
@@ -3119,6 +3325,8 @@ func (s *Server) handleWaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGetRe
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/getWebhooksCount/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGetOperation,
@@ -3264,6 +3472,8 @@ func (s *Server) handleWaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceG
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/lastIncomingMessages/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceGetOperation,
@@ -3413,6 +3623,8 @@ func (s *Server) handleWaInstanceIdInstanceLastOutgoingMessagesApiTokenInstanceG
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/lastOutgoingMessages/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceLastOutgoingMessagesApiTokenInstanceGetOperation,
@@ -3561,6 +3773,8 @@ func (s *Server) handleWaInstanceIdInstanceLeaveGroupApiTokenInstancePostRequest
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/leaveGroup/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceLeaveGroupApiTokenInstancePostOperation,
@@ -3720,6 +3934,8 @@ func (s *Server) handleWaInstanceIdInstanceLogoutApiTokenInstanceGetRequest(args
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/logout/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceLogoutApiTokenInstanceGetOperation,
@@ -3864,6 +4080,8 @@ func (s *Server) handleWaInstanceIdInstanceQrApiTokenInstanceGetRequest(args [2]
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/qr/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceQrApiTokenInstanceGetOperation,
@@ -4008,6 +4226,8 @@ func (s *Server) handleWaInstanceIdInstanceReadChatApiTokenInstancePostRequest(a
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/readChat/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceReadChatApiTokenInstancePostOperation,
@@ -4171,6 +4391,8 @@ func (s *Server) handleWaInstanceIdInstanceRebootApiTokenInstanceGetRequest(args
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/reboot/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceRebootApiTokenInstanceGetOperation,
@@ -4316,6 +4538,8 @@ func (s *Server) handleWaInstanceIdInstanceReceiveNotificationApiTokenInstanceGe
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/receiveNotification/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceReceiveNotificationApiTokenInstanceGetOperation,
@@ -4464,6 +4688,8 @@ func (s *Server) handleWaInstanceIdInstanceRemoveAdminApiTokenInstancePostReques
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/removeAdmin/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceRemoveAdminApiTokenInstancePostOperation,
@@ -4624,6 +4850,8 @@ func (s *Server) handleWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstanc
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/removeGroupParticipant/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostOperation,
@@ -4771,6 +4999,167 @@ func (s *Server) handleWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstanc
 	}
 }
 
+// handleWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostRequest handles POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance} operation.
+//
+// Отправить пароль авторизации.
+//
+// POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}
+func (s *Server) handleWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostRequest(args [2]string, argsEscaped bool, w http.ResponseWriter, r *http.Request) {
+	statusWriter := &codeRecorder{ResponseWriter: w}
+	w = statusWriter
+	otelAttrs := []attribute.KeyValue{
+		semconv.HTTPRequestMethodKey.String("POST"),
+		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}"),
+	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
+
+	// Start a span for this request.
+	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostOperation,
+		trace.WithAttributes(otelAttrs...),
+		serverSpanKind,
+	)
+	defer span.End()
+
+	// Add Labeler to context.
+	labeler := &Labeler{attrs: otelAttrs}
+	ctx = contextWithLabeler(ctx, labeler)
+
+	// Run stopwatch.
+	startTime := time.Now()
+	defer func() {
+		elapsedDuration := time.Since(startTime)
+
+		attrSet := labeler.AttributeSet()
+		attrs := attrSet.ToSlice()
+		code := statusWriter.status
+		if code != 0 {
+			codeAttr := semconv.HTTPResponseStatusCode(code)
+			attrs = append(attrs, codeAttr)
+			span.SetAttributes(codeAttr)
+		}
+		attrOpt := metric.WithAttributes(attrs...)
+
+		// Increment request counter.
+		s.requests.Add(ctx, 1, attrOpt)
+
+		// Use floating point division here for higher precision (instead of Millisecond method).
+		s.duration.Record(ctx, float64(elapsedDuration)/float64(time.Millisecond), attrOpt)
+	}()
+
+	var (
+		recordError = func(stage string, err error) {
+			span.RecordError(err)
+
+			// https://opentelemetry.io/docs/specs/semconv/http/http-spans/#status
+			// Span Status MUST be left unset if HTTP status code was in the 1xx, 2xx or 3xx ranges,
+			// unless there was another error (e.g., network error receiving the response body; or 3xx codes with
+			// max redirects exceeded), in which case status MUST be set to Error.
+			code := statusWriter.status
+			if code < 100 || code >= 500 {
+				span.SetStatus(codes.Error, stage)
+			}
+
+			attrSet := labeler.AttributeSet()
+			attrs := attrSet.ToSlice()
+			if code != 0 {
+				attrs = append(attrs, semconv.HTTPResponseStatusCode(code))
+			}
+
+			s.errors.Add(ctx, 1, metric.WithAttributes(attrs...))
+		}
+		err          error
+		opErrContext = ogenerrors.OperationContext{
+			Name: WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostOperation,
+			ID:   "",
+		}
+	)
+	params, err := decodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams(args, argsEscaped, r)
+	if err != nil {
+		err = &ogenerrors.DecodeParamsError{
+			OperationContext: opErrContext,
+			Err:              err,
+		}
+		defer recordError("DecodeParams", err)
+		s.cfg.ErrorHandler(ctx, w, r, err)
+		return
+	}
+
+	var rawBody []byte
+	request, rawBody, close, err := s.decodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostRequest(r)
+	if err != nil {
+		err = &ogenerrors.DecodeRequestError{
+			OperationContext: opErrContext,
+			Err:              err,
+		}
+		defer recordError("DecodeRequest", err)
+		s.cfg.ErrorHandler(ctx, w, r, err)
+		return
+	}
+	defer func() {
+		if err := close(); err != nil {
+			recordError("CloseRequest", err)
+		}
+	}()
+
+	var response *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode
+	if m := s.cfg.Middleware; m != nil {
+		mreq := middleware.Request{
+			Context:          ctx,
+			OperationName:    WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostOperation,
+			OperationSummary: "Отправить пароль авторизации",
+			OperationID:      "",
+			Body:             request,
+			RawBody:          rawBody,
+			Params: middleware.Parameters{
+				{
+					Name: "idInstance",
+					In:   "path",
+				}: params.IdInstance,
+				{
+					Name: "apiTokenInstance",
+					In:   "path",
+				}: params.ApiTokenInstance,
+			},
+			Raw: r,
+		}
+
+		type (
+			Request  = OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq
+			Params   = WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams
+			Response = *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode
+		)
+		response, err = middleware.HookMiddleware[
+			Request,
+			Params,
+			Response,
+		](
+			m,
+			mreq,
+			unpackWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams,
+			func(ctx context.Context, request Request, params Params) (response Response, err error) {
+				response, err = s.h.WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx, request, params)
+				return response, err
+			},
+		)
+	} else {
+		response, err = s.h.WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx, request, params)
+	}
+	if err != nil {
+		defer recordError("Internal", err)
+		s.cfg.ErrorHandler(ctx, w, r, err)
+		return
+	}
+
+	if err := encodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostResponse(response, w, span); err != nil {
+		defer recordError("EncodeResponse", err)
+		if !errors.Is(err, ht.ErrInternalServerErrorResponse) {
+			s.cfg.ErrorHandler(ctx, w, r, err)
+		}
+		return
+	}
+}
+
 // handleWaInstanceIdInstanceSendContactApiTokenInstancePostRequest handles POST /waInstance{idInstance}/sendContact/{apiTokenInstance} operation.
 //
 // Документация [SendContact](https://green-api.com/v3/docs/api/sending/SendContact/).
@@ -4783,6 +5172,8 @@ func (s *Server) handleWaInstanceIdInstanceSendContactApiTokenInstancePostReques
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendContact/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendContactApiTokenInstancePostOperation,
@@ -4947,6 +5338,8 @@ func (s *Server) handleWaInstanceIdInstanceSendFileByUploadApiTokenInstancePostR
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendFileByUpload/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendFileByUploadApiTokenInstancePostOperation,
@@ -5095,6 +5488,8 @@ func (s *Server) handleWaInstanceIdInstanceSendFileByUrlApiTokenInstancePostRequ
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendFileByUrl/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostOperation,
@@ -5258,6 +5653,8 @@ func (s *Server) handleWaInstanceIdInstanceSendLocationApiTokenInstancePostReque
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendLocation/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendLocationApiTokenInstancePostOperation,
@@ -5421,6 +5818,8 @@ func (s *Server) handleWaInstanceIdInstanceSendMessageApiTokenInstancePostReques
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendMessage/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendMessageApiTokenInstancePostOperation,
@@ -5584,6 +5983,8 @@ func (s *Server) handleWaInstanceIdInstanceSendTypingApiTokenInstancePostRequest
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/sendTyping/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSendTypingApiTokenInstancePostOperation,
@@ -5747,6 +6148,8 @@ func (s *Server) handleWaInstanceIdInstanceSetGroupAdminApiTokenInstancePostRequ
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/setGroupAdmin/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSetGroupAdminApiTokenInstancePostOperation,
@@ -5907,6 +6310,8 @@ func (s *Server) handleWaInstanceIdInstanceSetGroupPictureApiTokenInstancePostRe
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/setGroupPicture/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSetGroupPictureApiTokenInstancePostOperation,
@@ -6052,6 +6457,8 @@ func (s *Server) handleWaInstanceIdInstanceSetProfilePictureApiTokenInstancePost
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/setProfilePicture/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSetProfilePictureApiTokenInstancePostOperation,
@@ -6196,6 +6603,8 @@ func (s *Server) handleWaInstanceIdInstanceSetSettingsApiTokenInstancePostReques
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/setSettings/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceSetSettingsApiTokenInstancePostOperation,
@@ -6356,6 +6765,8 @@ func (s *Server) handleWaInstanceIdInstanceShowMessagesQueueApiTokenInstanceGetR
 		semconv.HTTPRequestMethodKey.String("GET"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/showMessagesQueue/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceShowMessagesQueueApiTokenInstanceGetOperation,
@@ -6501,6 +6912,8 @@ func (s *Server) handleWaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostRe
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/updateGroupName/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostOperation,
@@ -6661,6 +7074,8 @@ func (s *Server) handleWaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePo
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/updateGroupSettings/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePostOperation,
@@ -6820,6 +7235,8 @@ func (s *Server) handleWaInstanceIdInstanceUploadFileApiTokenInstancePostRequest
 		semconv.HTTPRequestMethodKey.String("POST"),
 		semconv.HTTPRouteKey.String("/waInstance{idInstance}/uploadFile/{apiTokenInstance}"),
 	}
+	// Add attributes from config.
+	otelAttrs = append(otelAttrs, s.cfg.Attributes...)
 
 	// Start a span for this request.
 	ctx, span := s.cfg.Tracer.Start(r.Context(), WaInstanceIdInstanceUploadFileApiTokenInstancePostOperation,

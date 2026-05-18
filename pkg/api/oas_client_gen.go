@@ -15,7 +15,7 @@ import (
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/metric"
-	semconv "go.opentelemetry.io/otel/semconv/v1.37.0"
+	semconv "go.opentelemetry.io/otel/semconv/v1.39.0"
 	"go.opentelemetry.io/otel/trace"
 )
 
@@ -85,6 +85,13 @@ type Invoker interface {
 	//
 	// POST /waInstance{idInstance}/editMessage/{apiTokenInstance}
 	WaInstanceIdInstanceEditMessageApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceEditMessageApiTokenInstancePostReq, params WaInstanceIdInstanceEditMessageApiTokenInstancePostParams) (WaInstanceIdInstanceEditMessageApiTokenInstancePostRes, error)
+	// WaInstanceIdInstanceForwardMessagesApiTokenInstancePost invokes POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance} operation.
+	//
+	// Документация [ForwardMessages](https://green-api.
+	// com/v3/docs/api/sending/ForwardMessages/).
+	//
+	// POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance}
+	WaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq, params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams) (*WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, error)
 	// WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGet invokes GET /waInstance{idInstance}/getAccountSettings/{apiTokenInstance} operation.
 	//
 	// Документация [GetAccountSettings](https://green-api.
@@ -227,6 +234,12 @@ type Invoker interface {
 	//
 	// POST /waInstance{idInstance}/removeGroupParticipant/{apiTokenInstance}
 	WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq, params WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostParams) (WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostRes, error)
+	// WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost invokes POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance} operation.
+	//
+	// Отправить пароль авторизации.
+	//
+	// POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}
+	WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq, params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams) (*WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, error)
 	// WaInstanceIdInstanceSendContactApiTokenInstancePost invokes POST /waInstance{idInstance}/sendContact/{apiTokenInstance} operation.
 	//
 	// Документация [SendContact](https://green-api.com/v3/docs/api/sending/SendContact/).
@@ -324,10 +337,6 @@ type Client struct {
 	serverURL *url.URL
 	baseClient
 }
-
-var _ Handler = struct {
-	*Client
-}{}
 
 // NewClient initializes new Client defined by OAS.
 func NewClient(serverURL string, opts ...ClientOption) (*Client, error) {
@@ -464,7 +473,8 @@ func (c *Client) sendWaInstanceIdInstanceAddGroupParticipantApiTokenInstancePost
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceAddGroupParticipantApiTokenInstancePostResponse(resp)
@@ -576,7 +586,8 @@ func (c *Client) sendWaInstanceIdInstanceCheckAccountApiTokenInstancePost(ctx co
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceCheckAccountApiTokenInstancePostResponse(resp)
@@ -686,7 +697,8 @@ func (c *Client) sendWaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGet(c
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceClearMessagesQueueApiTokenInstanceGetResponse(resp)
@@ -796,7 +808,8 @@ func (c *Client) sendWaInstanceIdInstanceClearWebhooksQueueApiTokenInstanceDelet
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceClearWebhooksQueueApiTokenInstanceDeleteResponse(resp)
@@ -908,7 +921,8 @@ func (c *Client) sendWaInstanceIdInstanceCreateGroupApiTokenInstancePost(ctx con
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceCreateGroupApiTokenInstancePostResponse(resp)
@@ -1020,7 +1034,8 @@ func (c *Client) sendWaInstanceIdInstanceDeleteMessageApiTokenInstancePost(ctx c
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceDeleteMessageApiTokenInstancePostResponse(resp)
@@ -1149,7 +1164,8 @@ func (c *Client) sendWaInstanceIdInstanceDeleteNotificationApiTokenInstanceRecei
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceDeleteNotificationApiTokenInstanceReceiptIdDeleteResponse(resp)
@@ -1262,7 +1278,8 @@ func (c *Client) sendWaInstanceIdInstanceDownloadFileApiTokenInstancePost(ctx co
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceDownloadFileApiTokenInstancePostResponse(resp)
@@ -1374,10 +1391,142 @@ func (c *Client) sendWaInstanceIdInstanceEditMessageApiTokenInstancePost(ctx con
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceEditMessageApiTokenInstancePostResponse(resp)
+	if err != nil {
+		return res, errors.Wrap(err, "decode response")
+	}
+
+	return result, nil
+}
+
+// WaInstanceIdInstanceForwardMessagesApiTokenInstancePost invokes POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance} operation.
+//
+// Документация [ForwardMessages](https://green-api.
+// com/v3/docs/api/sending/ForwardMessages/).
+//
+// POST /waInstance{idInstance}/forwardMessages/{apiTokenInstance}
+func (c *Client) WaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq, params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams) (*WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, error) {
+	res, err := c.sendWaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx, request, params)
+	return res, err
+}
+
+func (c *Client) sendWaInstanceIdInstanceForwardMessagesApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq, params WaInstanceIdInstanceForwardMessagesApiTokenInstancePostParams) (res *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders, err error) {
+	otelAttrs := []attribute.KeyValue{
+		semconv.HTTPRequestMethodKey.String("POST"),
+		semconv.URLTemplateKey.String("/waInstance{idInstance}/forwardMessages/{apiTokenInstance}"),
+	}
+	otelAttrs = append(otelAttrs, c.cfg.Attributes...)
+
+	// Run stopwatch.
+	startTime := time.Now()
+	defer func() {
+		// Use floating point division here for higher precision (instead of Millisecond method).
+		elapsedDuration := time.Since(startTime)
+		c.duration.Record(ctx, float64(elapsedDuration)/float64(time.Millisecond), metric.WithAttributes(otelAttrs...))
+	}()
+
+	// Increment request counter.
+	c.requests.Add(ctx, 1, metric.WithAttributes(otelAttrs...))
+
+	// Start a span for this request.
+	ctx, span := c.cfg.Tracer.Start(ctx, WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOperation,
+		trace.WithAttributes(otelAttrs...),
+		clientSpanKind,
+	)
+	// Track stage for error reporting.
+	var stage string
+	defer func() {
+		if err != nil {
+			span.RecordError(err)
+			span.SetStatus(codes.Error, stage)
+			c.errors.Add(ctx, 1, metric.WithAttributes(otelAttrs...))
+		}
+		span.End()
+	}()
+
+	stage = "BuildURL"
+	u := uri.Clone(c.requestURL(ctx))
+	var pathParts [4]string
+	pathParts[0] = "/waInstance"
+	{
+		// Encode "idInstance" parameter.
+		e := uri.NewPathEncoder(uri.PathEncoderConfig{
+			Param:   "idInstance",
+			Style:   uri.PathStyleSimple,
+			Explode: false,
+		})
+		if err := func() error {
+			return e.EncodeValue(conv.StringToString(params.IdInstance))
+		}(); err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		encoded, err := e.Result()
+		if err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		pathParts[1] = encoded
+	}
+	pathParts[2] = "/forwardMessages/"
+	{
+		// Encode "apiTokenInstance" parameter.
+		e := uri.NewPathEncoder(uri.PathEncoderConfig{
+			Param:   "apiTokenInstance",
+			Style:   uri.PathStyleSimple,
+			Explode: false,
+		})
+		if err := func() error {
+			return e.EncodeValue(conv.StringToString(params.ApiTokenInstance))
+		}(); err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		encoded, err := e.Result()
+		if err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		pathParts[3] = encoded
+	}
+	uri.AddPathParts(u, pathParts[:]...)
+
+	stage = "EncodeRequest"
+	r, err := ht.NewRequest(ctx, "POST", u)
+	if err != nil {
+		return res, errors.Wrap(err, "create request")
+	}
+	if err := encodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostRequest(request, r); err != nil {
+		return res, errors.Wrap(err, "encode request")
+	}
+
+	stage = "EncodeHeaderParams"
+	h := uri.NewHeaderEncoder(r.Header)
+	{
+		cfg := uri.HeaderParameterEncodingConfig{
+			Name:    "User-Agent",
+			Explode: false,
+		}
+		if err := h.EncodeParam(cfg, func(e uri.Encoder) error {
+			if val, ok := params.UserAgent.Get(); ok {
+				return e.EncodeValue(conv.StringToString(val))
+			}
+			return nil
+		}); err != nil {
+			return res, errors.Wrap(err, "encode header")
+		}
+	}
+
+	stage = "SendRequest"
+	resp, err := c.cfg.Client.Do(r)
+	if err != nil {
+		return res, errors.Wrap(err, "do request")
+	}
+	body := resp.Body
+	defer body.Close()
+
+	stage = "DecodeResponse"
+	result, err := decodeWaInstanceIdInstanceForwardMessagesApiTokenInstancePostResponse(resp)
 	if err != nil {
 		return res, errors.Wrap(err, "decode response")
 	}
@@ -1487,7 +1636,8 @@ func (c *Client) sendWaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGet(c
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetResponse(resp)
@@ -1599,7 +1749,8 @@ func (c *Client) sendWaInstanceIdInstanceGetAvatarApiTokenInstancePost(ctx conte
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetAvatarApiTokenInstancePostResponse(resp)
@@ -1712,7 +1863,8 @@ func (c *Client) sendWaInstanceIdInstanceGetChatHistoryApiTokenInstancePost(ctx 
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetChatHistoryApiTokenInstancePostResponse(resp)
@@ -1821,7 +1973,8 @@ func (c *Client) sendWaInstanceIdInstanceGetChatsApiTokenInstanceGet(ctx context
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetChatsApiTokenInstanceGetResponse(resp)
@@ -1934,7 +2087,8 @@ func (c *Client) sendWaInstanceIdInstanceGetContactInfoApiTokenInstancePost(ctx 
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetContactInfoApiTokenInstancePostResponse(resp)
@@ -2043,7 +2197,8 @@ func (c *Client) sendWaInstanceIdInstanceGetContactsApiTokenInstanceGet(ctx cont
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetContactsApiTokenInstanceGetResponse(resp)
@@ -2155,7 +2310,8 @@ func (c *Client) sendWaInstanceIdInstanceGetGroupDataApiTokenInstancePost(ctx co
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetGroupDataApiTokenInstancePostResponse(resp)
@@ -2267,7 +2423,8 @@ func (c *Client) sendWaInstanceIdInstanceGetMessageApiTokenInstancePost(ctx cont
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetMessageApiTokenInstancePostResponse(resp)
@@ -2377,7 +2534,8 @@ func (c *Client) sendWaInstanceIdInstanceGetMessagesCountApiTokenInstanceGet(ctx
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetMessagesCountApiTokenInstanceGetResponse(resp)
@@ -2486,7 +2644,8 @@ func (c *Client) sendWaInstanceIdInstanceGetSettingsApiTokenInstanceGet(ctx cont
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetSettingsApiTokenInstanceGetResponse(resp)
@@ -2596,7 +2755,8 @@ func (c *Client) sendWaInstanceIdInstanceGetStateInstanceApiTokenInstanceGet(ctx
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetStateInstanceApiTokenInstanceGetResponse(resp)
@@ -2706,7 +2866,8 @@ func (c *Client) sendWaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGet(ctx
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceGetWebhooksCountApiTokenInstanceGetResponse(resp)
@@ -2837,7 +2998,8 @@ func (c *Client) sendWaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceGet
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceLastIncomingMessagesApiTokenInstanceGetResponse(resp)
@@ -2968,7 +3130,8 @@ func (c *Client) sendWaInstanceIdInstanceLastOutgoingMessagesApiTokenInstanceGet
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceLastOutgoingMessagesApiTokenInstanceGetResponse(resp)
@@ -3080,7 +3243,8 @@ func (c *Client) sendWaInstanceIdInstanceLeaveGroupApiTokenInstancePost(ctx cont
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceLeaveGroupApiTokenInstancePostResponse(resp)
@@ -3189,7 +3353,8 @@ func (c *Client) sendWaInstanceIdInstanceLogoutApiTokenInstanceGet(ctx context.C
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceLogoutApiTokenInstanceGetResponse(resp)
@@ -3298,7 +3463,8 @@ func (c *Client) sendWaInstanceIdInstanceQrApiTokenInstanceGet(ctx context.Conte
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceQrApiTokenInstanceGetResponse(resp)
@@ -3427,7 +3593,8 @@ func (c *Client) sendWaInstanceIdInstanceReadChatApiTokenInstancePost(ctx contex
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceReadChatApiTokenInstancePostResponse(resp)
@@ -3536,7 +3703,8 @@ func (c *Client) sendWaInstanceIdInstanceRebootApiTokenInstanceGet(ctx context.C
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceRebootApiTokenInstanceGetResponse(resp)
@@ -3667,7 +3835,8 @@ func (c *Client) sendWaInstanceIdInstanceReceiveNotificationApiTokenInstanceGet(
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceReceiveNotificationApiTokenInstanceGetResponse(resp)
@@ -3779,7 +3948,8 @@ func (c *Client) sendWaInstanceIdInstanceRemoveAdminApiTokenInstancePost(ctx con
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceRemoveAdminApiTokenInstancePostResponse(resp)
@@ -3892,10 +4062,124 @@ func (c *Client) sendWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstanceP
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostResponse(resp)
+	if err != nil {
+		return res, errors.Wrap(err, "decode response")
+	}
+
+	return result, nil
+}
+
+// WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost invokes POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance} operation.
+//
+// Отправить пароль авторизации.
+//
+// POST /waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}
+func (c *Client) WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq, params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams) (*WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, error) {
+	res, err := c.sendWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx, request, params)
+	return res, err
+}
+
+func (c *Client) sendWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePost(ctx context.Context, request OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq, params WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostParams) (res *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode, err error) {
+	otelAttrs := []attribute.KeyValue{
+		semconv.HTTPRequestMethodKey.String("POST"),
+		semconv.URLTemplateKey.String("/waInstance{idInstance}/sendAuthorizationPassword/{apiTokenInstance}"),
+	}
+	otelAttrs = append(otelAttrs, c.cfg.Attributes...)
+
+	// Run stopwatch.
+	startTime := time.Now()
+	defer func() {
+		// Use floating point division here for higher precision (instead of Millisecond method).
+		elapsedDuration := time.Since(startTime)
+		c.duration.Record(ctx, float64(elapsedDuration)/float64(time.Millisecond), metric.WithAttributes(otelAttrs...))
+	}()
+
+	// Increment request counter.
+	c.requests.Add(ctx, 1, metric.WithAttributes(otelAttrs...))
+
+	// Start a span for this request.
+	ctx, span := c.cfg.Tracer.Start(ctx, WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostOperation,
+		trace.WithAttributes(otelAttrs...),
+		clientSpanKind,
+	)
+	// Track stage for error reporting.
+	var stage string
+	defer func() {
+		if err != nil {
+			span.RecordError(err)
+			span.SetStatus(codes.Error, stage)
+			c.errors.Add(ctx, 1, metric.WithAttributes(otelAttrs...))
+		}
+		span.End()
+	}()
+
+	stage = "BuildURL"
+	u := uri.Clone(c.requestURL(ctx))
+	var pathParts [4]string
+	pathParts[0] = "/waInstance"
+	{
+		// Encode "idInstance" parameter.
+		e := uri.NewPathEncoder(uri.PathEncoderConfig{
+			Param:   "idInstance",
+			Style:   uri.PathStyleSimple,
+			Explode: false,
+		})
+		if err := func() error {
+			return e.EncodeValue(conv.StringToString(params.IdInstance))
+		}(); err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		encoded, err := e.Result()
+		if err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		pathParts[1] = encoded
+	}
+	pathParts[2] = "/sendAuthorizationPassword/"
+	{
+		// Encode "apiTokenInstance" parameter.
+		e := uri.NewPathEncoder(uri.PathEncoderConfig{
+			Param:   "apiTokenInstance",
+			Style:   uri.PathStyleSimple,
+			Explode: false,
+		})
+		if err := func() error {
+			return e.EncodeValue(conv.StringToString(params.ApiTokenInstance))
+		}(); err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		encoded, err := e.Result()
+		if err != nil {
+			return res, errors.Wrap(err, "encode path")
+		}
+		pathParts[3] = encoded
+	}
+	uri.AddPathParts(u, pathParts[:]...)
+
+	stage = "EncodeRequest"
+	r, err := ht.NewRequest(ctx, "POST", u)
+	if err != nil {
+		return res, errors.Wrap(err, "create request")
+	}
+	if err := encodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostRequest(request, r); err != nil {
+		return res, errors.Wrap(err, "encode request")
+	}
+
+	stage = "SendRequest"
+	resp, err := c.cfg.Client.Do(r)
+	if err != nil {
+		return res, errors.Wrap(err, "do request")
+	}
+	body := resp.Body
+	defer body.Close()
+
+	stage = "DecodeResponse"
+	result, err := decodeWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostResponse(resp)
 	if err != nil {
 		return res, errors.Wrap(err, "decode response")
 	}
@@ -4021,7 +4305,8 @@ func (c *Client) sendWaInstanceIdInstanceSendContactApiTokenInstancePost(ctx con
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSendContactApiTokenInstancePostResponse(resp)
@@ -4148,7 +4433,8 @@ func (c *Client) sendWaInstanceIdInstanceSendFileByUploadApiTokenInstancePost(ct
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSendFileByUploadApiTokenInstancePostResponse(resp)
@@ -4277,7 +4563,8 @@ func (c *Client) sendWaInstanceIdInstanceSendFileByUrlApiTokenInstancePost(ctx c
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSendFileByUrlApiTokenInstancePostResponse(resp)
@@ -4406,7 +4693,8 @@ func (c *Client) sendWaInstanceIdInstanceSendLocationApiTokenInstancePost(ctx co
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSendLocationApiTokenInstancePostResponse(resp)
@@ -4535,7 +4823,8 @@ func (c *Client) sendWaInstanceIdInstanceSendMessageApiTokenInstancePost(ctx con
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSendMessageApiTokenInstancePostResponse(resp)
@@ -4664,7 +4953,8 @@ func (c *Client) sendWaInstanceIdInstanceSendTypingApiTokenInstancePost(ctx cont
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSendTypingApiTokenInstancePostResponse(resp)
@@ -4776,7 +5066,8 @@ func (c *Client) sendWaInstanceIdInstanceSetGroupAdminApiTokenInstancePost(ctx c
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSetGroupAdminApiTokenInstancePostResponse(resp)
@@ -4886,7 +5177,8 @@ func (c *Client) sendWaInstanceIdInstanceSetGroupPictureApiTokenInstancePost(ctx
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSetGroupPictureApiTokenInstancePostResponse(resp)
@@ -4996,7 +5288,8 @@ func (c *Client) sendWaInstanceIdInstanceSetProfilePictureApiTokenInstancePost(c
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSetProfilePictureApiTokenInstancePostResponse(resp)
@@ -5108,7 +5401,8 @@ func (c *Client) sendWaInstanceIdInstanceSetSettingsApiTokenInstancePost(ctx con
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceSetSettingsApiTokenInstancePostResponse(resp)
@@ -5218,7 +5512,8 @@ func (c *Client) sendWaInstanceIdInstanceShowMessagesQueueApiTokenInstanceGet(ct
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceShowMessagesQueueApiTokenInstanceGetResponse(resp)
@@ -5331,7 +5626,8 @@ func (c *Client) sendWaInstanceIdInstanceUpdateGroupNameApiTokenInstancePost(ctx
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceUpdateGroupNameApiTokenInstancePostResponse(resp)
@@ -5444,7 +5740,8 @@ func (c *Client) sendWaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePost
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceUpdateGroupSettingsApiTokenInstancePostResponse(resp)
@@ -5570,7 +5867,8 @@ func (c *Client) sendWaInstanceIdInstanceUploadFileApiTokenInstancePost(ctx cont
 	if err != nil {
 		return res, errors.Wrap(err, "do request")
 	}
-	defer resp.Body.Close()
+	body := resp.Body
+	defer body.Close()
 
 	stage = "DecodeResponse"
 	result, err := decodeWaInstanceIdInstanceUploadFileApiTokenInstancePostResponse(resp)

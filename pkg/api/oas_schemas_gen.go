@@ -515,6 +515,52 @@ func (o OptWaInstanceIdInstanceEditMessageApiTokenInstancePostReq) Or(d WaInstan
 	return d
 }
 
+// NewOptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq returns new OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq with value set to v.
+func NewOptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq(v WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq {
+	return OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq is optional WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq.
+type OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq struct {
+	Value WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq
+	Set   bool
+}
+
+// IsSet returns true if OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq was set.
+func (o OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) IsSet() bool { return o.Set }
+
+// Reset unsets value.
+func (o *OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Reset() {
+	var v WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) SetTo(v WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Get() (v WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptWaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) Or(d WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
 // NewOptWaInstanceIdInstanceGetAvatarApiTokenInstancePostReq returns new OptWaInstanceIdInstanceGetAvatarApiTokenInstancePostReq with value set to v.
 func NewOptWaInstanceIdInstanceGetAvatarApiTokenInstancePostReq(v WaInstanceIdInstanceGetAvatarApiTokenInstancePostReq) OptWaInstanceIdInstanceGetAvatarApiTokenInstancePostReq {
 	return OptWaInstanceIdInstanceGetAvatarApiTokenInstancePostReq{
@@ -1165,6 +1211,102 @@ func (o OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) Ge
 
 // Or returns value if set, or given parameter if does not.
 func (o OptWaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) Or(d WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData returns new OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData with value set to v.
+func NewOptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData(v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData {
+	return OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData is optional WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData.
+type OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData struct {
+	Value WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData
+	Set   bool
+}
+
+// IsSet returns true if OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData was set.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) IsSet() bool {
+	return o.Set
+}
+
+// Reset unsets value.
+func (o *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Reset() {
+	var v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) SetTo(v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Get() (v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) Or(d WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData {
+	if v, ok := o.Get(); ok {
+		return v
+	}
+	return d
+}
+
+// NewOptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq returns new OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq with value set to v.
+func NewOptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq(v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq {
+	return OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq{
+		Value: v,
+		Set:   true,
+	}
+}
+
+// OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq is optional WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq.
+type OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq struct {
+	Value WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq
+	Set   bool
+}
+
+// IsSet returns true if OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq was set.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) IsSet() bool {
+	return o.Set
+}
+
+// Reset unsets value.
+func (o *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Reset() {
+	var v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq
+	o.Value = v
+	o.Set = false
+}
+
+// SetTo sets value to v.
+func (o *OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) SetTo(v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) {
+	o.Set = true
+	o.Value = v
+}
+
+// Get returns value and boolean that denotes whether value was set.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Get() (v WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq, ok bool) {
+	if !o.Set {
+		return v, false
+	}
+	return o.Value, true
+}
+
+// Or returns value if set, or given parameter if does not.
+func (o OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) Or(d WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq {
 	if v, ok := o.Get(); ok {
 		return v
 	}
@@ -4883,6 +5025,126 @@ func (s *WaInstanceIdInstanceEditMessageApiTokenInstancePostReq) SetMessage(val 
 // SetIdMessage sets the value of IdMessage.
 func (s *WaInstanceIdInstanceEditMessageApiTokenInstancePostReq) SetIdMessage(val OptString) {
 	s.IdMessage = val
+}
+
+type WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK struct {
+	Messages []string `json:"messages"`
+}
+
+// GetMessages returns the value of Messages.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) GetMessages() []string {
+	return s.Messages
+}
+
+// SetMessages sets the value of Messages.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) SetMessages(val []string) {
+	s.Messages = val
+}
+
+// WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders wraps WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK with response headers.
+type WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders struct {
+	Connection    OptString
+	ContentLength OptInt
+	Date          OptString
+	Server        OptString
+	Response      WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK
+}
+
+// GetConnection returns the value of Connection.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) GetConnection() OptString {
+	return s.Connection
+}
+
+// GetContentLength returns the value of ContentLength.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) GetContentLength() OptInt {
+	return s.ContentLength
+}
+
+// GetDate returns the value of Date.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) GetDate() OptString {
+	return s.Date
+}
+
+// GetServer returns the value of Server.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) GetServer() OptString {
+	return s.Server
+}
+
+// GetResponse returns the value of Response.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) GetResponse() WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK {
+	return s.Response
+}
+
+// SetConnection sets the value of Connection.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) SetConnection(val OptString) {
+	s.Connection = val
+}
+
+// SetContentLength sets the value of ContentLength.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) SetContentLength(val OptInt) {
+	s.ContentLength = val
+}
+
+// SetDate sets the value of Date.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) SetDate(val OptString) {
+	s.Date = val
+}
+
+// SetServer sets the value of Server.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) SetServer(val OptString) {
+	s.Server = val
+}
+
+// SetResponse sets the value of Response.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOKHeaders) SetResponse(val WaInstanceIdInstanceForwardMessagesApiTokenInstancePostOK) {
+	s.Response = val
+}
+
+type WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq struct {
+	ChatId     OptString `json:"chatId"`
+	ChatIdFrom OptString `json:"chatIdFrom"`
+	Messages   []string  `json:"messages"`
+	TypingTime OptInt    `json:"typingTime"`
+}
+
+// GetChatId returns the value of ChatId.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) GetChatId() OptString {
+	return s.ChatId
+}
+
+// GetChatIdFrom returns the value of ChatIdFrom.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) GetChatIdFrom() OptString {
+	return s.ChatIdFrom
+}
+
+// GetMessages returns the value of Messages.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) GetMessages() []string {
+	return s.Messages
+}
+
+// GetTypingTime returns the value of TypingTime.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) GetTypingTime() OptInt {
+	return s.TypingTime
+}
+
+// SetChatId sets the value of ChatId.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) SetChatId(val OptString) {
+	s.ChatId = val
+}
+
+// SetChatIdFrom sets the value of ChatIdFrom.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) SetChatIdFrom(val OptString) {
+	s.ChatIdFrom = val
+}
+
+// SetMessages sets the value of Messages.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) SetMessages(val []string) {
+	s.Messages = val
+}
+
+// SetTypingTime sets the value of TypingTime.
+func (s *WaInstanceIdInstanceForwardMessagesApiTokenInstancePostReq) SetTypingTime(val OptInt) {
+	s.TypingTime = val
 }
 
 type WaInstanceIdInstanceGetAccountSettingsApiTokenInstanceGetOK struct {
@@ -11392,6 +11654,85 @@ func (s *WaInstanceIdInstanceRemoveGroupParticipantApiTokenInstancePostReq) SetP
 	s.ParticipantChatId = val
 }
 
+type WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef struct {
+	Status OptBool                                                                     `json:"status"`
+	Data   OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData `json:"data"`
+}
+
+// GetStatus returns the value of Status.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) GetStatus() OptBool {
+	return s.Status
+}
+
+// GetData returns the value of Data.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) GetData() OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData {
+	return s.Data
+}
+
+// SetStatus sets the value of Status.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) SetStatus(val OptBool) {
+	s.Status = val
+}
+
+// SetData sets the value of Data.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) SetData(val OptWaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) {
+	s.Data = val
+}
+
+type WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData struct {
+	Status OptString `json:"status"`
+}
+
+// GetStatus returns the value of Status.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) GetStatus() OptString {
+	return s.Status
+}
+
+// SetStatus sets the value of Status.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefData) SetStatus(val OptString) {
+	s.Status = val
+}
+
+// WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode wraps WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef with StatusCode.
+type WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode struct {
+	StatusCode int
+	Response   WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef
+}
+
+// GetStatusCode returns the value of StatusCode.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode) GetStatusCode() int {
+	return s.StatusCode
+}
+
+// GetResponse returns the value of Response.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode) GetResponse() WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef {
+	return s.Response
+}
+
+// SetStatusCode sets the value of StatusCode.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode) SetStatusCode(val int) {
+	s.StatusCode = val
+}
+
+// SetResponse sets the value of Response.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDefStatusCode) SetResponse(val WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostDef) {
+	s.Response = val
+}
+
+type WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq struct {
+	Password OptString `json:"password"`
+}
+
+// GetPassword returns the value of Password.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) GetPassword() OptString {
+	return s.Password
+}
+
+// SetPassword sets the value of Password.
+func (s *WaInstanceIdInstanceSendAuthorizationPasswordApiTokenInstancePostReq) SetPassword(val OptString) {
+	s.Password = val
+}
+
 type WaInstanceIdInstanceSendContactApiTokenInstancePostBadRequest struct {
 	StatusCode OptInt      `json:"statusCode"`
 	Timestamp  OptDateTime `json:"timestamp"`
@@ -11578,8 +11919,10 @@ func (*WaInstanceIdInstanceSendContactApiTokenInstancePostOKHeaders) waInstanceI
 }
 
 type WaInstanceIdInstanceSendContactApiTokenInstancePostReq struct {
-	ChatId  OptString                                                        `json:"chatId"`
-	Contact OptWaInstanceIdInstanceSendContactApiTokenInstancePostReqContact `json:"contact"`
+	ChatId          OptString                                                        `json:"chatId"`
+	Contact         OptWaInstanceIdInstanceSendContactApiTokenInstancePostReqContact `json:"contact"`
+	TypingTime      OptInt                                                           `json:"typingTime"`
+	QuotedMessageId OptString                                                        `json:"quotedMessageId"`
 }
 
 // GetChatId returns the value of ChatId.
@@ -11592,6 +11935,16 @@ func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) GetContact() Op
 	return s.Contact
 }
 
+// GetTypingTime returns the value of TypingTime.
+func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) GetTypingTime() OptInt {
+	return s.TypingTime
+}
+
+// GetQuotedMessageId returns the value of QuotedMessageId.
+func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) GetQuotedMessageId() OptString {
+	return s.QuotedMessageId
+}
+
 // SetChatId sets the value of ChatId.
 func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) SetChatId(val OptString) {
 	s.ChatId = val
@@ -11600,6 +11953,16 @@ func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) SetChatId(val O
 // SetContact sets the value of Contact.
 func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) SetContact(val OptWaInstanceIdInstanceSendContactApiTokenInstancePostReqContact) {
 	s.Contact = val
+}
+
+// SetTypingTime sets the value of TypingTime.
+func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) SetTypingTime(val OptInt) {
+	s.TypingTime = val
+}
+
+// SetQuotedMessageId sets the value of QuotedMessageId.
+func (s *WaInstanceIdInstanceSendContactApiTokenInstancePostReq) SetQuotedMessageId(val OptString) {
+	s.QuotedMessageId = val
 }
 
 type WaInstanceIdInstanceSendContactApiTokenInstancePostReqContact struct {
@@ -11998,10 +12361,12 @@ func (*WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostOKHeaders) waInstanc
 }
 
 type WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq struct {
-	ChatId   OptString `json:"chatId"`
-	UrlFile  OptURI    `json:"urlFile"`
-	FileName OptString `json:"fileName"`
-	Caption  OptString `json:"caption"`
+	ChatId          OptString `json:"chatId"`
+	UrlFile         OptURI    `json:"urlFile"`
+	FileName        OptString `json:"fileName"`
+	Caption         OptString `json:"caption"`
+	TypingTime      OptInt    `json:"typingTime"`
+	QuotedMessageId OptString `json:"quotedMessageId"`
 }
 
 // GetChatId returns the value of ChatId.
@@ -12024,6 +12389,16 @@ func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) GetCaption() 
 	return s.Caption
 }
 
+// GetTypingTime returns the value of TypingTime.
+func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) GetTypingTime() OptInt {
+	return s.TypingTime
+}
+
+// GetQuotedMessageId returns the value of QuotedMessageId.
+func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) GetQuotedMessageId() OptString {
+	return s.QuotedMessageId
+}
+
 // SetChatId sets the value of ChatId.
 func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) SetChatId(val OptString) {
 	s.ChatId = val
@@ -12042,6 +12417,16 @@ func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) SetFileName(v
 // SetCaption sets the value of Caption.
 func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) SetCaption(val OptString) {
 	s.Caption = val
+}
+
+// SetTypingTime sets the value of TypingTime.
+func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) SetTypingTime(val OptInt) {
+	s.TypingTime = val
+}
+
+// SetQuotedMessageId sets the value of QuotedMessageId.
+func (s *WaInstanceIdInstanceSendFileByUrlApiTokenInstancePostReq) SetQuotedMessageId(val OptString) {
+	s.QuotedMessageId = val
 }
 
 type WaInstanceIdInstanceSendLocationApiTokenInstancePostBadRequest struct {
@@ -12230,9 +12615,11 @@ func (*WaInstanceIdInstanceSendLocationApiTokenInstancePostOKHeaders) waInstance
 }
 
 type WaInstanceIdInstanceSendLocationApiTokenInstancePostReq struct {
-	ChatId    OptString  `json:"chatId"`
-	Latitude  OptFloat64 `json:"latitude"`
-	Longitude OptFloat64 `json:"longitude"`
+	ChatId          OptString  `json:"chatId"`
+	Latitude        OptFloat64 `json:"latitude"`
+	Longitude       OptFloat64 `json:"longitude"`
+	TypingTime      OptInt     `json:"typingTime"`
+	QuotedMessageId OptString  `json:"quotedMessageId"`
 }
 
 // GetChatId returns the value of ChatId.
@@ -12250,6 +12637,16 @@ func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) GetLongitude()
 	return s.Longitude
 }
 
+// GetTypingTime returns the value of TypingTime.
+func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) GetTypingTime() OptInt {
+	return s.TypingTime
+}
+
+// GetQuotedMessageId returns the value of QuotedMessageId.
+func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) GetQuotedMessageId() OptString {
+	return s.QuotedMessageId
+}
+
 // SetChatId sets the value of ChatId.
 func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) SetChatId(val OptString) {
 	s.ChatId = val
@@ -12263,6 +12660,16 @@ func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) SetLatitude(va
 // SetLongitude sets the value of Longitude.
 func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) SetLongitude(val OptFloat64) {
 	s.Longitude = val
+}
+
+// SetTypingTime sets the value of TypingTime.
+func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) SetTypingTime(val OptInt) {
+	s.TypingTime = val
+}
+
+// SetQuotedMessageId sets the value of QuotedMessageId.
+func (s *WaInstanceIdInstanceSendLocationApiTokenInstancePostReq) SetQuotedMessageId(val OptString) {
+	s.QuotedMessageId = val
 }
 
 type WaInstanceIdInstanceSendMessageApiTokenInstancePostBadRequest struct {
